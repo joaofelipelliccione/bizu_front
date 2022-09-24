@@ -11,6 +11,7 @@ import '@fontsource/ibm-plex-sans/700.css';
 import createEmotionCache from '../utility/createEmotionCache';
 import lightThemeOptions from '../styles/theme/lightThemeOptions';
 import '../styles/globals.css';
+
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
