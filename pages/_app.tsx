@@ -8,6 +8,7 @@ import '@fontsource/ibm-plex-sans/400.css';
 import '@fontsource/ibm-plex-sans/500.css';
 import '@fontsource/ibm-plex-sans/700.css';
 
+import Head from 'next/head';
 import createEmotionCache from '../utility/createEmotionCache';
 import lightThemeOptions from '../styles/theme/lightThemeOptions';
 import '../styles/globals.css';
@@ -28,6 +29,11 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
+        <Head>
+          <title>bizu design</title>
+          <meta name="description" content="Empoderando a criatividade!" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <Layout>
           <Component {...pageProps} />
         </Layout>
