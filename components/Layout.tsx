@@ -1,11 +1,12 @@
 import { ReactElement } from 'react';
-import styles from '../styles/components/layout.module.css';
+import { Box } from '@mui/material';
+import Navbar from './Navbar';
 
 const Layout = ({ children }: { children: ReactElement }) => (
-  <div className={styles.content}>
-    <p>Header</p>
+  <div>
+    <Navbar />
+    <Box sx={ { height: '4rem' } } />
     {children}
-    <p>Footer</p>
   </div>
 );
 

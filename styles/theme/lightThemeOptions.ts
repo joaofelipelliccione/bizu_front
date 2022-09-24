@@ -5,10 +5,10 @@ const lightThemeOptions: ThemeOptions = {
   palette: {
     mode: 'light',
     primary: {
-      main: '#f3f3e9',
+      main: '#c7cfb7',
     },
     secondary: {
-      main: '#c7cfb7',
+      main: '#f3f3e9',
     },
     text: {
       primary: 'rgba(0,0,0,0.87)',
@@ -16,7 +16,7 @@ const lightThemeOptions: ThemeOptions = {
       disabled: 'rgba(0,0,0,0.38)',
     },
     background: {
-      default: '#f1f1f1',
+      default: '#e2e1e1',
       paper: '#ffffff',
     },
     error: {
@@ -31,6 +31,13 @@ const lightThemeOptions: ThemeOptions = {
     success: {
       main: '#4bad4e',
     },
+  },
+  typography: {
+    fontFamily: 'Quicksand',
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
   },
 };
 
