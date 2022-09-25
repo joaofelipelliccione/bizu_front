@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   AppBar, Button, Container, Toolbar, Typography,
 } from '@mui/material';
-import ImgBtn from './ImgBtn';
+import ImgBtn from './Img/ImgBtn';
 import logo from '../assets/logoDefault.png';
 import styles from '../styles/components/navbar.module.css';
 
