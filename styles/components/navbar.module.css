@@ -1,0 +1,12 @@
+.toolbar {
+  border: solid 2px orange;
+  display: flex;
+  justify-content: space-around;
+  height: 4rem,
+}
+
+.navbarLogo {
+  cursor: pointer;
+  width: 3.5rem;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}

@@ -2,17 +2,20 @@ import * as React from 'react';
 import {
   AppBar, Button, Container, Toolbar, Typography,
 } from '@mui/material';
+import ImgBtn from './ImgBtn';
+import logo from '../assets/logoDefault.png';
+import styles from '../styles/components/navbar.module.css';
 
 const Navbar = () => (
   <AppBar position="fixed" color={'primary'}>
     <Container maxWidth="xl">
-      <Toolbar sx={{
-        border: 'solid 2px orange',
-        display: 'flex',
-        justifyContent: 'space-around',
-        height: '4rem',
-      }}>
-        <Typography>Logo</Typography>
+      <Toolbar className={styles.toolbar}>
+        <ImgBtn
+          imgSrc={ logo }
+          imgAlt="Logo bizu design"
+          href="/"
+          imgClassName={ styles.navbarLogo }
+        />
         <Typography>Caixa de Pesquisa</Typography>
         <Button variant="text" color='secondary'>Entrar</Button>
       </Toolbar>
