@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from 'next/image';
 import * as React from 'react';
+import Image, { StaticImageData } from 'next/image';
 
 interface IProps {
   imgSrc: StaticImageData;
