@@ -8,10 +8,10 @@ const Home: NextPage = () => (
     <Typography variant='h4'>
       Hello World!
     </Typography>
-    <Link href="/mobile" passHref>
+    <Link href="buscar/mobileApps" passHref>
       <Button variant="contained">Ir p/ Mobile</Button>
     </Link>
-    <Link href="/web" passHref>
+    <Link href="buscar/webApps" passHref>
       <Button variant="contained">Ir p/ Web</Button>
     </Link>
   </main>
