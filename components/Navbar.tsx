@@ -6,9 +6,16 @@ import {
 import ImgBtn from './Img/ImgBtn';
 import logo from '../assets/logoDefault.png';
 import styles from '../styles/components/navbar.module.css';
+import getSearchbarApps from '../services/GET/getSearchbarApps';
+import { ISearchbarAppsResult } from '../interfaces/apps';
 
 function Navbar() {
   const router = useRouter();
+  const [searchbarApps, setSearchbarApps] = React.useState<ISearchbarAppsResult[]>([]);
+
+  React.useEffect(() => {
+    getSearchbarApps('all').then((data) => setSearchbarApps(data as ISearchbarAppsResult[]));
+  }, []);
 
   return (
     <AppBar position="fixed" color={'primary'}>
