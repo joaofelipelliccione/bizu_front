@@ -1,13 +1,22 @@
-import { Typography } from '@mui/material';
+import React from 'react';
 import type { NextPage } from 'next';
+import useSignInForm from '../../hooks/forms/useSignInForm';
 import styles from '../../styles/pages/signIn.module.css';
 
-const Conta: NextPage = () => (
-  <main className={styles.signInPage}>
-    <Typography variant='h4'>
-      Faça Login
-    </Typography>
-  </main>
-);
+const Conta: NextPage = () => {
+  const { register, onSubmit } = useSignInForm();
+
+  return (
+    <main className={styles.signInPage}>
+      <form onSubmit={onSubmit}>
+        <input {...register('username')} placeholder="e-mail" />
+        <input {...register('password')} placeholder="senha" />
+        <button type="submit">
+        Fazer Login
+        </button>
+      </form>
+    </main>
+  );
+};
 
 export default Conta;
