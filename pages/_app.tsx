@@ -9,10 +9,12 @@ import '@fontsource/quicksand/500.css';
 import '@fontsource/quicksand/700.css';
 
 import Head from 'next/head';
+import { Provider } from 'react-redux';
+import initStore from '../redux/store';
 import createEmotionCache from '../utility/createEmotionCache';
 import lightThemeOptions from '../styles/theme/lightThemeOptions';
-import '../styles/globals.css';
 import Layout from '../components/Layout';
+import '../styles/globals.css';
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -35,7 +37,9 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Layout>
-          <Component {...pageProps} />
+          <Provider store={ initStore }>
+            <Component {...pageProps} />
+          </Provider>
         </Layout>
       </ThemeProvider>
     </CacheProvider>
