@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Grid, Button, TextField } from '@mui/material';
-import { Controller } from 'react-hook-form';
 import useSignInForm from '../../hooks/forms/useSignInForm';
 
 const formInputs = [
@@ -13,27 +12,22 @@ const formInputs = [
 ];
 
 export default function SignInForm() {
-  const {
-    control, onSubmit, errors,
-  } = useSignInForm();
+  const { register, onSubmit } = useSignInForm();
+  // const { register, onSubmit, errors } = useSignInForm();
 
   return (
     <Grid container spacing={2}>
       <form onSubmit={onSubmit}>
         {formInputs.map((element) => (
-          <Controller
+          <TextField
             key={element.id}
-            name={element.inputName as any}
-            defaultValue = {''}
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <TextField
-                type={element.inputType}
-                onChange={onChange}
-                value={value}
-                label={element.inputLabel}
-              />
-            )}
+            required
+            id={element.inputName}
+            type={element.inputType}
+            label={element.inputLabel}
+            fullWidth
+            margin="dense"
+            {...register(element.inputName as any)}
           />
         ))}
         <Button type="submit">Fazer Login</Button>

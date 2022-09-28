@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { ISignInFormData } from '../../interfaces/users';
 
 function useSignInForm() {
@@ -19,7 +19,7 @@ function useSignInForm() {
   ), []);
 
   const {
-    control, handleSubmit, formState: { errors }, reset,
+    register, handleSubmit, formState: { errors }, reset,
   } = useForm<ISignInFormData>({
     resolver: yupResolver(validationSchema),
   });
@@ -31,7 +31,7 @@ function useSignInForm() {
   }, []);
 
   return {
-    control,
+    register,
     errors,
     onSubmit: handleSubmit(onSubmit),
     reset,
