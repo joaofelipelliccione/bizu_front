@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Grid, Button, TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import useSignInForm from '../../hooks/forms/useSignInForm';
 
 const formInputs = [
@@ -16,22 +16,20 @@ export default function SignInForm() {
   // const { register, onSubmit, errors } = useSignInForm();
 
   return (
-    <Grid container spacing={2}>
-      <form onSubmit={onSubmit}>
-        {formInputs.map((element) => (
-          <TextField
-            key={element.id}
-            required
-            id={element.inputName}
-            type={element.inputType}
-            label={element.inputLabel}
-            fullWidth
-            margin="dense"
-            {...register(element.inputName as any)}
-          />
-        ))}
-        <Button type="submit">Fazer Login</Button>
-      </form>
-    </Grid>
+    <form onSubmit={onSubmit}>
+      {formInputs.map((element) => (
+        <TextField
+          key={element.id}
+          required
+          id={element.inputName}
+          type={element.inputType}
+          label={element.inputLabel}
+          fullWidth
+          margin="dense"
+          {...register(element.inputName as any)}
+        />
+      ))}
+      <Button type="submit">Fazer Login</Button>
+    </form>
   );
 }
