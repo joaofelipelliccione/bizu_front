@@ -18,7 +18,9 @@ function useSignInForm() {
     })
   ), []);
 
-  const { register, handleSubmit, formState: { errors } } = useForm<ISignInFormData>({
+  const {
+    control, handleSubmit, formState: { errors }, reset,
+  } = useForm<ISignInFormData>({
     resolver: yupResolver(validationSchema),
   });
 
@@ -29,9 +31,10 @@ function useSignInForm() {
   }, []);
 
   return {
-    register,
+    control,
     errors,
     onSubmit: handleSubmit(onSubmit),
+    reset,
   };
 }
 
