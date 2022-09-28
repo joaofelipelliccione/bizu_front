@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import {
   AppBar, Button, Container, Toolbar, Typography,
 } from '@mui/material';
-import ImgBtn from './Img/ImgBtn';
+import ImgBtn from './images/ImgBtn';
 import logo from '../assets/logoDefault.png';
 import styles from '../styles/components/navbar.module.css';
 import getSearchbarApps from '../services/GET/getSearchbarApps';

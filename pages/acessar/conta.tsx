@@ -18,7 +18,7 @@ const Conta: NextPage = () => {
           defaultValue = {''}
           control={control}
           render={({ field: { onChange, value } }) => (
-            <TextField onChange={onChange} value={value} label={'e-mail'} />
+            <TextField type={'email'} onChange={onChange} value={value} label={'e-mail'} />
           )}
         />
         <Controller
@@ -26,7 +26,7 @@ const Conta: NextPage = () => {
           defaultValue = {''}
           control={control}
           render={({ field: { onChange, value } }) => (
-            <TextField onChange={onChange} value={value} label={'senha'} />
+            <TextField type={'password'} onChange={onChange} value={value} label={'senha'} />
           )}
         />
         <Button type="submit">Fazer Login</Button>
