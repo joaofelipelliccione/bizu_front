@@ -5,10 +5,10 @@ const lightThemeOptions: ThemeOptions = {
   palette: {
     mode: 'light',
     primary: {
-      main: '#c7cfb7',
+      main: '#496874',
     },
     secondary: {
-      main: '#f3f3e9',
+      main: '#21DF7F',
     },
     text: {
       primary: 'rgba(0,0,0,0.87)',
@@ -16,8 +16,8 @@ const lightThemeOptions: ThemeOptions = {
       disabled: 'rgba(0,0,0,0.38)',
     },
     background: {
-      default: '#e2e1e1',
-      paper: '#ffffff',
+      default: '#E5E5E5',
+      paper: '#FFFFFF',
     },
     error: {
       main: '#ec4033',
@@ -34,10 +34,22 @@ const lightThemeOptions: ThemeOptions = {
   },
   typography: {
     fontFamily: 'Quicksand',
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
-    fontWeightMedium: 500,
-    fontWeightBold: 700,
+    h1: {
+      fontWeight: 600,
+      '@media (min-width:0px)': {
+        fontSize: '1.1rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '1.4rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.4rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1.6rem',
+      },
+    },
+    button: { textTransform: 'none' },
   },
 };
 

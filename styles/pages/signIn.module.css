@@ -1,3 +1,8 @@
 .signInPage {
-  border: solid 2px pink;
+  background-image: url('../../assets/login_background.png');
+  background-size: cover;
+}
+
+.signInForm button {
+  margin-bottom: 1rem;
 }

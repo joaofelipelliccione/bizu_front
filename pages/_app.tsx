@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 import initStore from '../redux/store';
 import createEmotionCache from '../utility/createEmotionCache';
 import lightThemeOptions from '../styles/theme/lightThemeOptions';
-import Layout from '../components/Layout';
+// import Layout from '../components/Layout';
 import '../styles/globals.css';
 
 interface MyAppProps extends AppProps {
@@ -36,11 +36,11 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
           <meta name="description" content="Empoderando a criatividade!" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Layout>
-          <Provider store={ initStore }>
-            <Component {...pageProps} />
-          </Provider>
-        </Layout>
+        {/* <Layout> */}
+        <Provider store={ initStore }>
+          <Component {...pageProps} />
+        </Provider>
+        {/* </Layout> */}
       </ThemeProvider>
     </CacheProvider>
   );

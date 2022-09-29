@@ -1,12 +1,17 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import styles from '../../styles/pages/signIn.module.css';
+import { Grid } from '@mui/material';
 import SignInForm from '../../components/forms/SignInForm';
+import styles from '../../styles/pages/signIn.module.css';
 
 const Conta: NextPage = () => (
-  <main className={styles.signInPage}>
+  <Grid
+    className={styles.signInPage}
+    container
+    justifyContent={'center'}
+  >
     <SignInForm />
-  </main>
+  </Grid>
 );
 
 export default Conta;
