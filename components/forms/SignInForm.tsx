@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import {
   Button, Grid, IconButton, TextField, Typography,
 } from '@mui/material';
-import Link from 'next/link';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import useSignInForm from '../../hooks/forms/useSignInForm';
 
@@ -16,6 +17,7 @@ const formInputs = [
 ];
 
 export default function SignInForm() {
+  const router = useRouter()
   const { register, onSubmit, errors } = useSignInForm();
 
   return (
@@ -65,6 +67,20 @@ export default function SignInForm() {
             }}
           />
         ))}
+        <Link href="/" passHref>
+          <Typography
+            color='error'
+            alignSelf={'flex-end'}
+            variant="subtitle1"
+            sx={{
+              marginTop: '-1rem',
+              cursor: 'pointer',
+              fontSize: '0.8rem',
+            }}
+          >
+            esqueci minha senha :(
+          </Typography>
+        </Link>
         <Button
           type="button"
           onClick={onSubmit}
@@ -72,22 +88,24 @@ export default function SignInForm() {
           color="secondary"
           size="small"
           sx={{
-            margin: '1rem 0 1.2rem 0',
-            fontSize: '1.1rem',
+            margin: '1.5rem 0 1.2rem 0',
+            fontSize: '1rem',
           }}
         >
           acessar
         </Button>
         <Button
           type="button"
-          // onClick={onSubmit}
+          onClick={() => router.push('/registrar/conta')}
           variant="contained"
           color="primary"
           size="small"
           sx={{
-            width: '50%',
+            width: {
+              xs: '70%', sm: '55%', md: '50%', lg: '50%',
+            },
             alignSelf: 'center',
-            fontSize: '1rem',
+            fontSize: '0.9rem',
             marginBottom: '0.7rem',
           }}
         >
