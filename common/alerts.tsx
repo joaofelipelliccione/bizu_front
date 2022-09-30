@@ -47,7 +47,7 @@ function globalAlerts(alertType: string, message: string) {
       text: message,
       background: '#95B3BF',
       backdrop: false,
-      color: '#663C00',
+      color: '#000000',
       width: '20em',
       showConfirmButton: false,
       timer: 3000,
@@ -58,11 +58,12 @@ function globalAlerts(alertType: string, message: string) {
     Swal.fire({
       position: 'bottom',
       text: message,
-      background: 'white',
-      color: '#496874',
+      background: '#95B3BF',
+      backdrop: false,
+      color: '#000000',
       width: '20em',
       showConfirmButton: false,
-      timer: 2000,
+      timer: 3000,
       timerProgressBar: true,
     });
   }
