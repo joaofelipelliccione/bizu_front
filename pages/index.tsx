@@ -20,7 +20,7 @@ const Home: NextPage = () => (
     </Link>
     <Button
       variant="contained"
-      onClick={() => globalAlerts('success', 'login realizado com sucesso :)')}
+      onClick={() => globalAlerts('info', 'teste teste teste teste :)')}
     >
       Alerta
     </Button>
