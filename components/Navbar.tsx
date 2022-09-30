@@ -28,7 +28,7 @@ function Navbar() {
             href="/"
             imgClassName={ styles.navbarLogo }
           />
-          <Typography>Caixa de Pesquisa de {router.pathname}</Typography>
+          <Typography>Caixa de Pesquisa d {router.pathname}</Typography>
           <Button variant="text" color='secondary'>Entrar</Button>
         </Toolbar>
       </Container>
