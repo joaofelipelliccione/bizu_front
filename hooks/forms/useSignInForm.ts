@@ -25,8 +25,8 @@ function useSignInForm() {
   });
 
   const onSubmit = React.useCallback((formValues: ISignInFormData) => {
-    // CHAMAR API
     console.log(formValues);
+    // CHAMAR API
     // FAZER O DISPATCH
   }, []);
 
