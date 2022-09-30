@@ -6,8 +6,8 @@ import {
 import ImgBtn from './images/ImgBtn';
 import logo from '../assets/logoDefault.png';
 import styles from '../styles/components/navbar.module.css';
-import getSearchBarApps from '../services/GET/getSearchBarApps';
 import { ISearchBarAppsResult } from '../interfaces/apps';
+import getSearchBarApps from '../services/GET/getSearchBarApps';
 
 function Navbar() {
   const router = useRouter();
