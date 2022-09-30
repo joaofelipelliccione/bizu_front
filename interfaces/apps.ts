@@ -1,4 +1,4 @@
-export interface ISearchbarAppsResult {
+export interface ISearchBarAppsResult {
   id: number;
   logo: string;
   name: string;

@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { ISearchbarAppsResult } from '../../interfaces/apps';
+import { ISearchBarAppsResult } from '../../interfaces/apps';
+
 import bizuAxios from '../bizuAxios';
 
-const getSearchbarApps = async (platform: string):
-  Promise<ISearchbarAppsResult[]> => bizuAxios.get(`/apps/searchbar?platform=${platform}`)
+const getSearchBarApps = async (platform: string):
+  Promise<ISearchBarAppsResult> => bizuAxios.get(`/apps/searchbar?platform=${platform}`)
   .then(({ data }) => data)
   .catch((error) => {
     if (axios.isAxiosError(error)) {
@@ -13,4 +14,4 @@ const getSearchbarApps = async (platform: string):
     return [];
   });
 
-export default getSearchbarApps;
+export default getSearchBarApps;
