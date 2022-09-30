@@ -9,12 +9,12 @@ function useSignInForm() {
     yup.object().shape({
       username: yup
         .string()
-        .email('Formato de e-mail porra!')
-        .required('E-mail obrigatório'),
+        .email('formato inválido, tente algo como ze@dubizu.com')
+        .required('campo obrigatório'),
       password: yup
         .string()
-        .matches(/^((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, 'Endireita a senha!')
-        .required('Senha obrigatória'),
+        .required('campo obrigatório')
+        .matches(/^((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, 'formato inválido'),
     })
   ), []);
 

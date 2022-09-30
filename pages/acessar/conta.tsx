@@ -9,6 +9,8 @@ const Conta: NextPage = () => (
     className={styles.signInPage}
     container
     justifyContent={'center'}
+    alignItems={'center'}
+    height="100vh"
   >
     <SignInForm />
   </Grid>

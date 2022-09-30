@@ -35,18 +35,18 @@ const lightThemeOptions: ThemeOptions = {
   typography: {
     fontFamily: 'Quicksand',
     h1: {
-      fontWeight: 600,
+      fontWeight: 400,
       '@media (min-width:0px)': {
-        fontSize: '1.1rem',
+        fontSize: '1.5rem',
       },
       '@media (min-width:600px)': {
-        fontSize: '1.4rem',
+        fontSize: '2rem',
       },
       '@media (min-width:900px)': {
-        fontSize: '1.4rem',
+        fontSize: '2.5rem',
       },
       '@media (min-width:1200px)': {
-        fontSize: '1.6rem',
+        fontSize: '3rem',
       },
     },
     button: { textTransform: 'none' },

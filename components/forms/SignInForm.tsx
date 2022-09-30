@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {
-  Button, Grid, TextField, Typography,
+  Button, Grid, IconButton, TextField, Typography,
 } from '@mui/material';
 import Link from 'next/link';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import useSignInForm from '../../hooks/forms/useSignInForm';
-import styles from '../../styles/pages/signIn.module.css';
 
 const formInputs = [
   {
@@ -16,15 +16,13 @@ const formInputs = [
 ];
 
 export default function SignInForm() {
-  const { register, onSubmit } = useSignInForm();
-  // const { register, onSubmit, errors } = useSignInForm();
+  const { register, onSubmit, errors } = useSignInForm();
 
   return (
     <Grid
       container
       flexDirection={'column'}
       sx={{
-        border: 'solid 2px blue',
         width: {
           xs: '75%', sm: '50%', md: '45%', lg: '30%',
         },
@@ -36,30 +34,34 @@ export default function SignInForm() {
         <Typography
           variant='h1'
           color={'primary'}
+          sx={{
+            marginBottom: '3rem',
+          }}
         >
-          acesse sua conta
+          LOGIN
         </Typography>
       </Grid>
       <Grid
         container
         flexDirection={'column'}
-        sx={{
-          border: 'solid 2px green',
-        }}
       >
-        {formInputs.map((element) => (
+        {formInputs.map(({
+          id, inputType, inputLabel, inputName,
+        }) => (
           <TextField
-            key={element.id}
+            key={id}
             required
-            type={element.inputType}
-            label={element.inputLabel}
-            {...register(element.inputName as any)}
+            type={inputType}
+            label={inputLabel}
+            {...register(inputName as any)}
             variant="standard"
             size="small"
-            margin="dense"
+            color='primary'
             fullWidth
+            error={!!errors[inputName]}
+            helperText={errors[inputName] && errors[inputName].message }
             sx={{
-              marginBottom: '1rem',
+              marginBottom: '1.5rem',
             }}
           />
         ))}
@@ -70,7 +72,8 @@ export default function SignInForm() {
           color="secondary"
           size="small"
           sx={{
-            marginTop: '1rem',
+            margin: '1rem 0 1.2rem 0',
+            fontSize: '1.1rem',
           }}
         >
           acessar
@@ -84,11 +87,23 @@ export default function SignInForm() {
           sx={{
             width: '50%',
             alignSelf: 'center',
+            fontSize: '1rem',
+            marginBottom: '0.7rem',
           }}
         >
           ainda não faço parte
         </Button>
-        <Link href='/'>voltar</Link>
+        <Link href="/" passHref>
+          <IconButton
+            aria-label="homepage"
+            sx={{
+              alignSelf: 'center',
+              width: 'fit-content',
+            }}
+          >
+            <HomeRoundedIcon />
+          </IconButton>
+        </Link>
       </Grid>
     </Grid>
   );
