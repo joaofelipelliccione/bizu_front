@@ -12,12 +12,12 @@ const formInputs = [
     id: 1, inputName: 'username', inputType: 'email', inputLabel: 'e-mail',
   },
   {
-    id: 2, inputName: 'password', inputType: 'password', inputLabel: 'senha',
+    id: 2, inputName: 'password', inputType: 'password', inputLabel: 'senha super secreta',
   },
 ];
 
 export default function SignInForm() {
-  const router = useRouter()
+  const router = useRouter();
   const { register, onSubmit, errors } = useSignInForm();
 
   return (
@@ -69,7 +69,7 @@ export default function SignInForm() {
         ))}
         <Link href="/" passHref>
           <Typography
-            color='error'
+            color='primary'
             alignSelf={'flex-end'}
             variant="subtitle1"
             sx={{

@@ -1,4 +1,13 @@
+/* DESKTOP: */
 .signInPage {
-  background-image: url('../../assets/login_background.png');
+  background-image: url('../../assets/signInPage/background_large.png');
   background-size: cover;
+}
+
+/* TABLET & MOBILE: */
+@media screen and (max-width: 980px) {
+  .signInPage {
+    background-image: url('../../assets/signInPage/background_medium.png');
+    background-size: cover;
+  }
 }
