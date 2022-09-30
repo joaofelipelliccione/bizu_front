@@ -15,6 +15,7 @@ function Navbar() {
 
   React.useEffect(() => {
     getSearchbarApps('all').then((data) => setSearchbarApps(data as ISearchbarAppsResult[]));
+    console.log(searchbarApps);
   }, []);
 
   return (
