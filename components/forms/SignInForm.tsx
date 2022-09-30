@@ -7,18 +7,26 @@ import {
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import useSignInForm from '../../hooks/forms/useSignInForm';
 
-const formInputs = [
-  {
-    id: 1, inputName: 'username', inputType: 'email', inputLabel: 'e-mail',
-  },
-  {
-    id: 2, inputName: 'password', inputType: 'password', inputLabel: 'senha super secreta',
-  },
-];
-
 export default function SignInForm() {
   const router = useRouter();
   const { register, onSubmit, errors } = useSignInForm();
+
+  const formInputs = [
+    {
+      id: 1,
+      inputName: 'username',
+      inputType: 'email',
+      inputLabel: 'e-mail',
+      errorMessage: errors.username?.message,
+    },
+    {
+      id: 2,
+      inputName: 'password',
+      inputType: 'password',
+      inputLabel: 'senha super secreta',
+      errorMessage: errors.password?.message,
+    },
+  ];
 
   return (
     <Grid
@@ -48,7 +56,7 @@ export default function SignInForm() {
         flexDirection={'column'}
       >
         {formInputs.map(({
-          id, inputType, inputLabel, inputName,
+          id, inputType, inputLabel, inputName, errorMessage,
         }) => (
           <TextField
             key={id}
@@ -60,8 +68,8 @@ export default function SignInForm() {
             size="small"
             color='primary'
             fullWidth
-            error={!!errors[inputName]}
-            helperText={errors[inputName] && errors[inputName].message }
+            error={!!errorMessage}
+            helperText={errorMessage}
             sx={{
               marginBottom: '1.5rem',
             }}
