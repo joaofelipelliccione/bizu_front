@@ -33,19 +33,25 @@ function useSignInForm() {
   const onSubmit = React.useCallback((formValues: ISignInFormData) => {
     setIsFetching(true);
     login(formValues).then((data) => {
-      switch (data) {
+      switch (data.statusCode) {
       case 200:
         setIsFetching(false);
         router.push('/');
-        globalAlerts('success', 'bottom', 'seja muito bem-vindo(a) :)', 2500);
+        globalAlerts('success', 'bottom', 'seja muito bem-vindo(a) :)', 2000);
         break;
       case 401:
-        globalAlerts('error', 'bottom', 'parece que sua senha está errada...', 2500);
+        if (data.message.includes('não verificado')) {
+          globalAlerts('warning', 'bottom', 'acabamos de te enviar um e-mail de verificação de conta! confere lá sua caixa de entrada e depois tente realizar o login novamente ;)', 8000);
+          setIsFetching(false);
+          break;
+        }
+
+        globalAlerts('error', 'bottom', 'parece que a senha informada não bate com a que temos aqui :(', 3200);
         setIsFetching(false);
         break;
       case 404:
         setIsFetching(false);
-        globalAlerts('warning', 'bottom', 'parece que você ainda não possui uma conta com a gente...', 3500);
+        globalAlerts('warning', 'bottom', 'parece que você ainda não possui uma conta com a gente...', 3200);
         router.push('/registrar/conta');
         break;
       default:

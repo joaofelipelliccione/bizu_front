@@ -20,7 +20,7 @@ const Home: NextPage = () => (
     </Link>
     <Button
       variant="contained"
-      onClick={() => globalAlerts('error', 'bottom', 'ops, algo deu errado em seu login... tente novamente em alguns minutos!', 4000)}
+      onClick={() => globalAlerts('warning', 'bottom', 'acabamos de te enviar um e-mail de verificação de conta! confere lá sua caixa de entrada e depois tente realizar o login novamente ;)', 8000)}
     >
       Alerta
     </Button>
