@@ -6,6 +6,7 @@ import {
 } from '@mui/material';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import useSignInForm from '../../hooks/forms/useSignInForm';
+import styles from '../../styles/pages/signIn.module.css';
 
 export default function SignInForm() {
   const router = useRouter();
@@ -32,6 +33,7 @@ export default function SignInForm() {
 
   return (
     <Grid
+      className={styles.signInForm}
       container
       flexDirection={'column'}
       sx={{

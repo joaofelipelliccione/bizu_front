@@ -1,3 +1,12 @@
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-8rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* DESKTOP: */
 .signInPage {
   background-image: url('../../assets/signInPage/background_large.png');
@@ -10,4 +19,13 @@
     background-image: url('../../assets/signInPage/background_medium.png');
     background-size: cover;
   }
+}
+
+/* BOTH: */
+.signInForm {
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-name: slideInFromTop;
 }
