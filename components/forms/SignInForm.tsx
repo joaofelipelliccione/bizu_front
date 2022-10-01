@@ -9,7 +9,9 @@ import useSignInForm from '../../hooks/forms/useSignInForm';
 
 export default function SignInForm() {
   const router = useRouter();
-  const { register, onSubmit, errors, isFetching } = useSignInForm();
+  const {
+    register, onSubmit, errors, isFetching,
+  } = useSignInForm();
 
   const formInputs = [
     {
