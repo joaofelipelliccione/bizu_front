@@ -46,12 +46,12 @@ function useSignInForm() {
           break;
         }
 
-        globalAlerts('error', 'bottom', 'parece que a senha informada não bate com a que temos aqui :(', 3200);
+        globalAlerts('error', 'bottom', 'parece que a senha informada não bate com a que temos aqui :(', 3500);
         setIsFetching(false);
         break;
       case 404:
         setIsFetching(false);
-        globalAlerts('warning', 'bottom', 'parece que você ainda não possui uma conta com a gente...', 3200);
+        globalAlerts('warning', 'bottom', 'parece que você ainda não possui uma conta com a gente...', 3500);
         router.push('/registrar/conta');
         break;
       default:

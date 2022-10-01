@@ -2,17 +2,16 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { Grid } from '@mui/material';
 import styles from '../../styles/pages/signUp.module.css';
-import SignUpForm from '../../components/forms/SignUpForm';
 
 const Conta: NextPage = () => (
   <Grid
-    className={styles.signUpPage}
+    className={styles.verifySignUpPage}
     container
     justifyContent={'center'}
     alignItems={'center'}
     height="100vh"
   >
-    <SignUpForm />
+    E-MAIL DE VERIFICAÇÃO ENVIADO PORRA!
   </Grid>
 );
 

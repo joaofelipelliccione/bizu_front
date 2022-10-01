@@ -1,3 +1,31 @@
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(8rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* DESKTOP: */
 .signUpPage {
-  border: solid 2px rebeccapurple;
+  background-image: url('../../assets/signUpPage/background_large.png');
+  background-size: cover;
+}
+
+/* TABLET & MOBILE: */
+@media screen and (max-width: 980px) {
+  .signUpPage {
+    background-image: url('../../assets/signInPage/background_medium.png');
+    background-size: cover;
+  }
+}
+
+/* BOTH: */
+.signUpForm {
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-name: slideInFromBottom;
 }

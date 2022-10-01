@@ -3,6 +3,12 @@ export interface ISignInFormData {
   password: string;
 }
 
+export interface ISignUpFormData {
+  username: string;
+  email: string;
+  password: string;
+}
+
 export interface IUser {
   id: string | null;
   username: string | null;
