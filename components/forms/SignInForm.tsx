@@ -2,14 +2,14 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {
-  Button, Grid, IconButton, TextField, Typography,
+  Button, Grid, IconButton, LinearProgress, TextField, Typography,
 } from '@mui/material';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import useSignInForm from '../../hooks/forms/useSignInForm';
 
 export default function SignInForm() {
   const router = useRouter();
-  const { register, onSubmit, errors } = useSignInForm();
+  const { register, onSubmit, errors, isFetching } = useSignInForm();
 
   const formInputs = [
     {
@@ -95,13 +95,15 @@ export default function SignInForm() {
           variant="contained"
           color="secondary"
           size="small"
+          disabled={isFetching}
           sx={{
-            margin: '1.5rem 0 1.2rem 0',
+            margin: '1.5rem 0 0 0',
             fontSize: '1rem',
           }}
         >
           acessar
         </Button>
+        {isFetching && <LinearProgress />}
         <Button
           type="button"
           onClick={() => router.push('/registrar/conta')}
@@ -114,7 +116,7 @@ export default function SignInForm() {
             },
             alignSelf: 'center',
             fontSize: '0.9rem',
-            marginBottom: '0.7rem',
+            margin: '1.2rem 0 0.7rem 0',
           }}
         >
           ainda não faço parte

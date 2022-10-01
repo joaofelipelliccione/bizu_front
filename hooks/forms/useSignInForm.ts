@@ -8,7 +8,7 @@ import login from '../../services/POST/login';
 import globalAlerts from '../../common/alerts';
 
 function useSignInForm() {
-  // const [isFetching, setIsFetching] = React.useState<boolean>(false);
+  const [isFetching, setIsFetching] = React.useState<boolean>(false);
   const router = useRouter();
 
   const validationSchema = React.useMemo(() => (
@@ -31,20 +31,25 @@ function useSignInForm() {
   });
 
   const onSubmit = React.useCallback((formValues: ISignInFormData) => {
+    setIsFetching(true);
     login(formValues).then((data) => {
       switch (data) {
       case 200:
+        setIsFetching(false);
         router.push('/');
         globalAlerts('success', 'bottom', 'seja muito bem-vindo(a) :)', 2500);
         break;
       case 401:
         globalAlerts('error', 'bottom', 'parece que sua senha está errada...', 2500);
+        setIsFetching(false);
         break;
       case 404:
-        globalAlerts('warning', 'bottom', 'parece que você ainda não possui uma conta com a gente...', 3000);
+        setIsFetching(false);
+        globalAlerts('warning', 'bottom', 'parece que você ainda não possui uma conta com a gente...', 3500);
         router.push('/registrar/conta');
         break;
       default:
+        setIsFetching(false);
         globalAlerts('error', 'bottom', 'ops, algo deu errado em seu login... tente novamente em alguns minutos!', 4500);
       }
     });
@@ -55,7 +60,7 @@ function useSignInForm() {
     errors,
     onSubmit: handleSubmit(onSubmit),
     reset,
-    // isFetching,
+    isFetching,
   };
 }
 
