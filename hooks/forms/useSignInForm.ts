@@ -35,17 +35,17 @@ function useSignInForm() {
       switch (data) {
       case 200:
         router.push('/');
-        globalAlerts('success', 'login realizado com sucesso :)');
+        globalAlerts('success', 'bottom', 'seja muito bem-vindo(a) :)', 2500);
         break;
       case 401:
-        console.log('Alerta: e-mail ou senha inválida :(');
+        globalAlerts('error', 'bottom', 'parece que sua senha está errada...', 2500);
         break;
       case 404:
-        console.log('Alerta: Ainda não possui conta :(');
+        globalAlerts('warning', 'bottom', 'parece que você ainda não possui uma conta com a gente...', 3000);
         router.push('/registrar/conta');
         break;
       default:
-        console.log('Alerta: Algo deu errado');
+        globalAlerts('error', 'bottom', 'ops, algo deu errado em seu login... tente novamente em alguns minutos!', 4500);
       }
     });
   }, [router]);
