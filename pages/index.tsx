@@ -2,10 +2,12 @@ import { Button, Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import globalAlerts from '../common/alerts';
+import Navbar from '../components/navbar/Navbar';
 import styles from '../styles/pages/home.module.css';
 
 const Home: NextPage = () => (
   <main className={styles.homePageMain}>
+    <Navbar />
     <Typography variant='h4'>
       Hello World!
     </Typography>
