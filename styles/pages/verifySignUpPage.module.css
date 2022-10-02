@@ -1,0 +1,17 @@
+@keyframes bounce {
+  0%   { transform: scale(1,1)    translateY(0); }
+  10%  { transform: scale(1,1) translateY(0); }
+  30%  { transform: scale(1,1) translateY(-180px); }
+  50%  { transform: scale(1,1)    translateY(0); }
+  57%  { transform: scale(1,1)    translateY(-35px); }
+  64%  { transform: scale(1,1)    translateY(0); }
+  100% { transform: scale(1,1)    translateY(0); }
+}
+
+.verifySignUpPage {
+  animation-duration: 1.8s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-name: bounce;
+}
