@@ -1,23 +1,14 @@
 import * as React from 'react';
-import { useRouter } from 'next/router';
-import {
-  AppBar, Button, Toolbar, Typography,
-} from '@mui/material';
-import getSearchBarApps from '../../services/GET/getSearchBarApps';
-import { ISearchBarAppsResult } from '../../interfaces/apps';
+// import { useRouter } from 'next/router';
+import { AppBar, Toolbar } from '@mui/material';
 import ImgBtn from '../images/ImgBtn';
 import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
 import LinkBar from './LinkBar';
+import SearchBar from './SearchBar';
 
 function Navbar() {
-  const router = useRouter();
-  const [searchBarApps, setSearchBarApps] = React.useState<ISearchBarAppsResult[]>([]);
-
-  React.useEffect(() => {
-    getSearchBarApps('all').then((data) => setSearchBarApps(data as unknown as ISearchBarAppsResult[]));
-    console.log(searchBarApps);
-  }, []);
+  // const router = useRouter();
 
   return (
     <AppBar
@@ -41,6 +32,7 @@ function Navbar() {
           imgClassName={ styles.navbarLogo }
         />
         <LinkBar />
+        <SearchBar />
       </Toolbar>
     </AppBar>
   );
