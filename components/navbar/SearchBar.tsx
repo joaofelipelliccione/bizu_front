@@ -29,6 +29,7 @@ function SearchBar() {
           component="li"
           sx={{
             '& > img': { borderRadius: '7px', mr: 2, flexShrink: 0 },
+            '&:hover': { backgroundColor: '#C6CCCE !important' },
           }}
         >
           <img
@@ -43,7 +44,8 @@ function SearchBar() {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="busque uma aplicação (ex: nubank)"
+          label="busque uma aplicação..."
+          InputLabelProps={{ style: { color: '#FFFFFF' } }}
           sx={{
             '& label.Mui-focused': { color: '#FFFFFF' },
             '& .MuiInput-underline:after': { borderBottomColor: '#FFFFFF' },
