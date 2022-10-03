@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { Box } from '@mui/material';
-import Navbar from './Navbar';
+import Navbar from './navbar/Navbar';
 
 const Layout = ({ children }: { children: ReactElement }) => (
   <div>
