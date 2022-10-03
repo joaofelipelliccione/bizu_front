@@ -4,9 +4,10 @@ import { AppBar, Toolbar } from '@mui/material';
 import ImgBtn from '../images/ImgBtn';
 import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
-import LinkBar from './LinkBar';
+import LinkBarLeft from './LinkBarLeft';
 import SearchBar from './SearchBar';
-import ProfileBar from './ProfileBar';
+import LinkBarRight from './LinkBarRight';
+import AvatarMenu from './AvatarMenu';
 
 function Navbar() {
   // const router = useRouter();
@@ -33,9 +34,10 @@ function Navbar() {
           href="/"
           imgClassName={ styles.navbarLogo }
         />
-        <LinkBar />
+        <LinkBarLeft />
         <SearchBar />
-        <ProfileBar />
+        <LinkBarRight />
+        <AvatarMenu />
       </Toolbar>
     </AppBar>
   );

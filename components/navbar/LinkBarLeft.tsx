@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { Grid, Typography } from '@mui/material';
 import Link from 'next/link';
-// import styles from '../../styles/components/navbar.module.css';
+import styles from '../../styles/components/navbar.module.css';
 
-function LinkBar() {
+function LinkBarLeft() {
   const router = useRouter();
 
   const links = [
@@ -22,10 +22,10 @@ function LinkBar() {
 
   return (
     <Grid
+      className={styles.linkBarLeft}
       container
       justifyContent={'space-between'}
       sx={{
-        // border: 'solid 2px blue',
         width: { md: '23%', lg: '19%' },
       }}
     >
@@ -53,4 +53,4 @@ function LinkBar() {
     </Grid>
   );
 }
-export default LinkBar;
+export default LinkBarLeft;

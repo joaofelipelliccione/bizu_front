@@ -5,9 +5,8 @@ import { Grid, Typography } from '@mui/material';
 import ImgBtn from '../images/ImgBtn';
 import donateIcon from '../../assets/navbar/donate_icon.png';
 import styles from '../../styles/components/navbar.module.css';
-import AvatarMenu from './AvatarMenu';
 
-function ProfileBar() {
+function LinkBarRight() {
   const router = useRouter();
 
   return (
@@ -16,8 +15,7 @@ function ProfileBar() {
       justifyContent={'space-between'}
       alignItems={'center'}
       sx={{
-        // border: 'solid 2px blue',
-        width: { md: '23%', lg: '20%' },
+        width: { md: '18%', lg: '14%' },
       }}
     >
       <Link
@@ -44,8 +42,7 @@ function ProfileBar() {
         href="/"
         imgClassName={ styles.donateIcon }
       />
-      <AvatarMenu />
     </Grid>
   );
 }
-export default ProfileBar;
+export default LinkBarRight;
