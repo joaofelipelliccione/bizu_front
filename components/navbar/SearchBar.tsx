@@ -16,7 +16,6 @@ function SearchBar() {
   return (
     <Autocomplete
       sx={{
-        background: '#60C597',
         width: '35%',
       }}
       options={searchBarApps}
@@ -44,7 +43,16 @@ function SearchBar() {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="busque um aplicação (ex: nubank)"
+          label="busque uma aplicação (ex: nubank)"
+          sx={{
+            '& label.Mui-focused': { color: '#FFFFFF' },
+            '& .MuiInput-underline:after': { borderBottomColor: '#FFFFFF' },
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': { borderColor: '#FFFFFF', backgroundColor: '#21DF7F', opacity: '0.5' },
+              '&:hover fieldset': { borderColor: '#FFFFFF', backgroundColor: '#21DF7F', opacity: '0.3' },
+              '&.Mui-focused fieldset': { borderColor: '#FFFFFF' },
+            },
+          }}
         />
       )}
     />
