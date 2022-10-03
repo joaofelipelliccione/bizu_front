@@ -10,3 +10,9 @@
   width: 3.5rem;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
+
+.donateIcon {
+  cursor: pointer;
+  width: 1.8rem;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}

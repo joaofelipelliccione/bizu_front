@@ -6,6 +6,7 @@ import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
 import LinkBar from './LinkBar';
 import SearchBar from './SearchBar';
+import ProfileBar from './ProfileBar';
 
 function Navbar() {
   // const router = useRouter();
@@ -20,9 +21,10 @@ function Navbar() {
     >
       <Toolbar
         sx={{
-          border: 'solid 2px green',
+          width: '90%',
           height: '100%',
-          justifyContent: 'space-around',
+          alignSelf: 'center',
+          justifyContent: 'space-evenly',
         }}
       >
         <ImgBtn
@@ -33,6 +35,7 @@ function Navbar() {
         />
         <LinkBar />
         <SearchBar />
+        <ProfileBar />
       </Toolbar>
     </AppBar>
   );

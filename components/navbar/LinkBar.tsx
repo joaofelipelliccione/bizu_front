@@ -25,9 +25,8 @@ function LinkBar() {
       container
       justifyContent={'space-between'}
       sx={{
-        width: {
-          xs: '60%', sm: '32%', md: '24%', lg: '18%',
-        },
+        // border: 'solid 2px blue',
+        width: { md: '23%', lg: '19%' },
       }}
     >
       {links.map(({ id, linkHref, linkName }) => (
