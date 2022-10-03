@@ -7,7 +7,7 @@
 
 .navbarLogo {
   cursor: pointer;
-  width: 3.5rem;
+  width: 3rem;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
@@ -19,7 +19,11 @@
 }
 
 /* DESKTOP: */
-
+@media screen and (min-width: 981px) {
+  .hamburgerMenu {
+    display: none;
+  }
+}
 
 /* TABLET & MOBILE: */
 @media screen and (max-width: 980px) {

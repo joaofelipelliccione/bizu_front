@@ -8,6 +8,7 @@ import LinkBarLeft from './LinkBarLeft';
 import SearchBar from './SearchBar';
 import LinkBarRight from './LinkBarRight';
 import AvatarMenu from './AvatarMenu';
+import HamburgerMenu from './HamburgerMenu';
 
 function Navbar() {
   // const router = useRouter();
@@ -22,7 +23,9 @@ function Navbar() {
     >
       <Toolbar
         sx={{
-          width: '90%',
+          width: {
+            xs: '100%', sm: '90%', md: '90%', lg: '90%',
+          },
           height: '100%',
           alignSelf: 'center',
           justifyContent: 'space-evenly',
@@ -38,6 +41,7 @@ function Navbar() {
         <SearchBar />
         <LinkBarRight />
         <AvatarMenu />
+        <HamburgerMenu />
       </Toolbar>
     </AppBar>
   );

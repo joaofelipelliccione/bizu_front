@@ -24,21 +24,25 @@ function AvatarMenu() {
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+          <Avatar
+            alt="Remy Sharp"
+            src="/static/images/avatar/2.jpg"
+            sx={{ width: '1.8rem', height: '1.8rem' }}
+          />
         </IconButton>
       </Tooltip>
       <Menu
-        sx={{ mt: '45px' }}
+        sx={{ mt: '35px' }}
         id="menu-appbar"
         anchorEl={anchorElUser}
         anchorOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'left',
         }}
         keepMounted
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'left',
         }}
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}

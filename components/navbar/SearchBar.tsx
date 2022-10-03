@@ -16,7 +16,9 @@ function SearchBar() {
   return (
     <Autocomplete
       sx={{
-        width: { md: '25%', lg: '32%' },
+        width: {
+          xs: '45%', sm: '50%', md: '30%', lg: '32%',
+        },
       }}
       options={searchBarApps}
       getOptionLabel={(option) => option.name}
