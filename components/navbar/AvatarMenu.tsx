@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+// import { useRouter } from 'next/router';
+// import Link from 'next/link';
 import {
   Box, Tooltip, IconButton, Menu, Avatar, MenuItem, Typography,
 } from '@mui/material';
-import styles from '../../styles/components/navbar.module.css';
+// import styles from '../../styles/components/navbar.module.css';
 
 function AvatarMenu() {
-  const router = useRouter();
+  // const router = useRouter();
   const menuOptions = ['meu perfil', 'sair'];
 
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
