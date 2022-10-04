@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppBar, Toolbar } from '@mui/material';
+import { AppBar, CircularProgress, Toolbar } from '@mui/material';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
 // import { useRouter } from 'next/router';
 import ImgBtn from '../images/ImgBtn';
@@ -78,7 +78,7 @@ function Navbar() {
         <LinkBarLeft />
         <SearchBar />
         <LinkBarRight />
-        <AvatarMenu />
+        {isFetching ? <CircularProgress /> : <AvatarMenu /> }
         <HamburgerMenu />
       </Toolbar>
     </AppBar>
