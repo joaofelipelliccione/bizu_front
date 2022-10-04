@@ -17,7 +17,7 @@ function LinkBarRight() {
     >
       <Link href="/" passHref>
         <IconButton
-          aria-label="suporte financeiro"
+          aria-label="Botão de acesso à página de doações."
           sx={{
             alignSelf: 'center',
             width: 'fit-content',

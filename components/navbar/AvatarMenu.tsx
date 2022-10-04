@@ -27,7 +27,7 @@ function AvatarMenu() {
           <Avatar
             alt="Remy Sharp"
             src="/static/images/avatar/2.jpg"
-            sx={{ width: '1.8rem', height: '1.8rem' }}
+            sx={{ width: '2rem', height: '2rem' }}
           />
         </IconButton>
       </Tooltip>

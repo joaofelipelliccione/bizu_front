@@ -17,7 +17,7 @@ function SearchBar() {
     <Autocomplete
       sx={{
         width: {
-          xs: '45%', sm: '50%', md: '30%', lg: '32%',
+          xs: '45%', sm: '50%', md: '40%', lg: '40%',
         },
       }}
       options={searchBarApps}

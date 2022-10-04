@@ -23,12 +23,10 @@ function Navbar() {
     >
       <Toolbar
         sx={{
-          width: {
-            xs: '100%', sm: '90%', md: '90%', lg: '90%',
-          },
+          width: '95%',
           height: '100%',
           alignSelf: 'center',
-          justifyContent: 'space-evenly',
+          justifyContent: 'space-around',
         }}
       >
         <ImgBtn

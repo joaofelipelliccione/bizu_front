@@ -1,24 +1,13 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import { Grid, Typography } from '@mui/material';
+import { Grid, IconButton } from '@mui/material';
+import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
+import LaptopRoundedIcon from '@mui/icons-material/LaptopRounded';
 import Link from 'next/link';
 import styles from '../../styles/components/navbar.module.css';
 
 function LinkBarLeft() {
   const router = useRouter();
-
-  const links = [
-    {
-      id: 1,
-      linkHref: '/mobile/apps',
-      linkName: 'mobile apps',
-    },
-    {
-      id: 2,
-      linkHref: '/web/apps',
-      linkName: 'web apps',
-    },
-  ];
 
   return (
     <Grid
@@ -26,31 +15,35 @@ function LinkBarLeft() {
       container
       justifyContent={'space-between'}
       sx={{
-        width: { md: '23%', lg: '19%' },
+        width: { md: '16%', lg: '12%' },
       }}
     >
-      {links.map(({ id, linkHref, linkName }) => (
-        <Link
-          key={id}
-          href={linkHref}
-          passHref
+      <Link href="/mobile/apps" passHref>
+        <IconButton
+          aria-label="Botão de acesso à página 'mobile'."
+          disabled={router.pathname === '/mobile/apps'}
+          sx={{
+            alignSelf: 'center',
+            width: 'fit-content',
+          }}
         >
-          <Typography
-            fontWeight={'500'}
-            sx={{
-              color: router.pathname === linkHref ? '#496874' : '#000000',
-              cursor: 'pointer',
-              '&:hover': {
-                color: '#496874',
-                transitionDuration: '0.3s',
-              },
-            }}
-          >
-            {linkName}
-          </Typography>
-        </Link>
-      ))}
+          <SmartphoneRoundedIcon />
+        </IconButton>
+      </Link>
+      <Link href="/web/apps" passHref>
+        <IconButton
+          aria-label="Botão de acesso à página 'web'."
+          disabled={router.pathname === '/web/apps'}
+          sx={{
+            alignSelf: 'center',
+            width: 'fit-content',
+          }}
+        >
+          <LaptopRoundedIcon />
+        </IconButton>
+      </Link>
     </Grid>
   );
 }
+
 export default LinkBarLeft;
