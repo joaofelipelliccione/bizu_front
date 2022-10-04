@@ -9,9 +9,29 @@ import SearchBar from './SearchBar';
 import LinkBarRight from './LinkBarRight';
 import AvatarMenu from './AvatarMenu';
 import HamburgerMenu from './HamburgerMenu';
+import getUserInfo from '../../services/GET/getUserInfo';
+import { IUser } from '../../interfaces/users';
+import globalAlerts from '../../common/alerts';
 
 function Navbar() {
+  const [userInfo, setUserInfo] = React.useState<IUser>();
+  const [isFetching, setIsFetching] = React.useState<boolean>(false);
   // const router = useRouter();
+
+  React.useEffect(() => {
+    setIsFetching(true);
+    getUserInfo().then((data) => {
+      if (data.statusCode === 401) {
+        globalAlerts('error', 'bottom', 'sessão expirada :(', 3500);
+        setIsFetching(false);
+      } else {
+        setUserInfo(data.message as unknown as IUser);
+        setIsFetching(false);
+        console.log(userInfo);
+        console.log(isFetching);
+      }
+    });
+  }, []);
 
   return (
     <AppBar
