@@ -1,5 +1,4 @@
 import { IGenericResponse } from '../../interfaces/genericResponse';
-
 import bizuAxios from '../bizuAxios';
 
 const getUserInfo = async ():
