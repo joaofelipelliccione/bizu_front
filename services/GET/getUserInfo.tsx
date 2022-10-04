@@ -1,9 +1,10 @@
-import { IGenericResponse } from '../../interfaces/genericResponse';
 import bizuAxios from '../bizuAxios';
+import { IUser } from '../../interfaces/users';
+import { IGenericResponse } from '../../interfaces/genericResponse';
 
 const getUserInfo = async ():
-Promise<IGenericResponse> => bizuAxios.get('/users/current')
-  .then(({ data }) => ({ statusCode: 200, message: data }))
+Promise<IUser | IGenericResponse> => bizuAxios.get('/users/current')
+  .then(({ data }) => (data))
   .catch((error) => ({
     statusCode: 401,
     message: `Erro ao buscar informações do usuário - ${error}`,

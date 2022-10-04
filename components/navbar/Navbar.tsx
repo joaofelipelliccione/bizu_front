@@ -1,37 +1,55 @@
 import * as React from 'react';
-// import { useRouter } from 'next/router';
 import { AppBar, Toolbar } from '@mui/material';
+import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
+// import { useRouter } from 'next/router';
 import ImgBtn from '../images/ImgBtn';
-import logo from '../../assets/logoDefault.png';
-import styles from '../../styles/components/navbar.module.css';
 import LinkBarLeft from './LinkBarLeft';
 import SearchBar from './SearchBar';
 import LinkBarRight from './LinkBarRight';
 import AvatarMenu from './AvatarMenu';
 import HamburgerMenu from './HamburgerMenu';
 import getUserInfo from '../../services/GET/getUserInfo';
-import { IUser } from '../../interfaces/users';
+import logo from '../../assets/logoDefault.png';
 import globalAlerts from '../../common/alerts';
+import styles from '../../styles/components/navbar.module.css';
+import { setUsersInfoAC } from '../../redux/users/actions';
 
 function Navbar() {
-  const [userInfo, setUserInfo] = React.useState<IUser>();
   const [isFetching, setIsFetching] = React.useState<boolean>(false);
+  const currentUserInfo = useAppSelector((state) => state.users);
+  const dispatch = useAppDispatch();
   // const router = useRouter();
 
   React.useEffect(() => {
-    setIsFetching(true);
-    getUserInfo().then((data) => {
-      if (data.statusCode === 401) {
-        globalAlerts('error', 'bottom', 'sessão expirada :(', 3500);
-        setIsFetching(false);
-      } else {
-        setUserInfo(data.message as unknown as IUser);
-        setIsFetching(false);
-        console.log(userInfo);
-        console.log(isFetching);
-      }
-    });
-  }, []);
+    if (currentUserInfo.id === null) {
+      setIsFetching(true);
+      getUserInfo().then((data) => {
+        if ('statusCode' in data) {
+          const payload = {
+            id: null,
+            username: null,
+            email: null,
+            profilePicture: null,
+          };
+          dispatch(setUsersInfoAC(payload));
+          globalAlerts('error', 'bottom', 'sessão expirada :(', 2500);
+          setIsFetching(false);
+        }
+
+        if ('username' in data) {
+          const payload = {
+            id: data.id,
+            username: data.username,
+            email: data.email,
+            profilePicture: data.profilePicture,
+          };
+
+          dispatch(setUsersInfoAC(payload));
+          setIsFetching(false);
+        }
+      });
+    }
+  }, [currentUserInfo.id, dispatch]);
 
   return (
     <AppBar
