@@ -23,7 +23,9 @@ function Navbar() {
     >
       <Toolbar
         sx={{
-          width: '95%',
+          width: {
+            xs: '100%', sm: '95%', md: '95%', lg: '95%',
+          },
           height: '100%',
           alignSelf: 'center',
           justifyContent: 'space-around',

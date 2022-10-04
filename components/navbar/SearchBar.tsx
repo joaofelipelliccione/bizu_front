@@ -17,7 +17,7 @@ function SearchBar() {
     <Autocomplete
       sx={{
         width: {
-          xs: '45%', sm: '50%', md: '40%', lg: '40%',
+          xs: '55%', sm: '50%', md: '45%', lg: '45%',
         },
       }}
       options={searchBarApps}
@@ -31,12 +31,13 @@ function SearchBar() {
           component="li"
           sx={{
             '& > img': { borderRadius: '7px', mr: 2, flexShrink: 0 },
-            '&:hover': { backgroundColor: '#C6CCCE !important' },
+            '&:hover': { backgroundColor: '#A7B3B7 !important' },
+            borderRadius: '7px',
           }}
         >
           <img
             loading="lazy"
-            width="20"
+            width="30"
             src={option.logo}
             alt={option.name}
           />

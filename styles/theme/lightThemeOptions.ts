@@ -17,7 +17,7 @@ const lightThemeOptions: ThemeOptions = {
     },
     background: {
       default: '#E5E5E5',
-      paper: '#FFFFFF',
+      paper: '#E1E1E1',
     },
     error: {
       main: '#ec4033',
