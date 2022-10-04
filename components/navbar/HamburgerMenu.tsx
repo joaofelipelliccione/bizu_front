@@ -2,14 +2,17 @@ import * as React from 'react';
 // import { useRouter } from 'next/router';
 // import Link from 'next/link';
 import {
-  Box, IconButton, Menu, MenuItem, Typography,
+  Box, IconButton, Menu, MenuItem,
 } from '@mui/material';
+import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
+import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
+import LaptopRoundedIcon from '@mui/icons-material/LaptopRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
 import styles from '../../styles/components/navbar.module.css';
 
 function HamburgerMenu() {
   // const router = useRouter();
-  const menuOptions = ['mobile apps', 'web apps', 'propósito', 'doação'];
 
   const [anchorElHamburger, setAnchorElHamburger] = React.useState<null | HTMLElement>(null);
 
@@ -35,21 +38,61 @@ function HamburgerMenu() {
         anchorEl={anchorElHamburger}
         anchorOrigin={{
           vertical: 'top',
-          horizontal: 'left',
+          horizontal: 'center',
         }}
         keepMounted
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'left',
+          horizontal: 'center',
         }}
         open={Boolean(anchorElHamburger)}
         onClose={handleCloseMenu}
       >
-        {menuOptions.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseMenu}>
-            <Typography textAlign="center">{setting}</Typography>
-          </MenuItem>
-        ))}
+        <MenuItem onClick={handleCloseMenu}>
+          <IconButton
+            aria-label="Botão de acesso à página 'mobile'."
+            sx={{
+              width: '1.2rem',
+              height: '1.1rem',
+            }}
+          >
+            <SmartphoneRoundedIcon sx={{ width: '1.2rem' }} />
+          </IconButton>
+        </MenuItem>
+        <MenuItem onClick={handleCloseMenu}>
+          <IconButton
+            aria-label="Botão de acesso à página 'web'."
+            sx={{
+              width: '1.2rem',
+              height: '1.1rem',
+            }}
+          >
+            <LaptopRoundedIcon sx={{ width: '1.2rem' }} />
+          </IconButton>
+        </MenuItem>
+        <MenuItem onClick={handleCloseMenu}>
+          <IconButton
+            aria-label="Botão de acesso à página de doações."
+            sx={{
+              width: '1.2rem',
+              height: '1.1rem',
+            }}
+          >
+            <ShowChartRoundedIcon sx={{ width: '1.2rem' }} />
+          </IconButton>
+        </MenuItem>
+        <MenuItem onClick={handleCloseMenu}>
+          <IconButton
+            aria-label="Botão de logout."
+            color='error'
+            sx={{
+              width: '1.2rem',
+              height: '1.1rem',
+            }}
+          >
+            <LogoutTwoToneIcon sx={{ width: '1.2rem' }} />
+          </IconButton>
+        </MenuItem>
       </Menu>
     </Box>
   );

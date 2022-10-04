@@ -2,14 +2,13 @@ import * as React from 'react';
 // import { useRouter } from 'next/router';
 // import Link from 'next/link';
 import {
-  Box, Tooltip, IconButton, Menu, Avatar, MenuItem, Typography,
+  Box, IconButton, Menu, Avatar, MenuItem, Typography,
 } from '@mui/material';
+import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 // import styles from '../../styles/components/navbar.module.css';
 
 function AvatarMenu() {
   // const router = useRouter();
-  const menuOptions = ['meu perfil', 'sair'];
-
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -22,36 +21,56 @@ function AvatarMenu() {
 
   return (
     <Box sx={{ flexGrow: 0 }}>
-      <Tooltip title="Open settings">
-        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar
-            alt="Remy Sharp"
-            src="/static/images/avatar/2.jpg"
-            sx={{ width: '2rem', height: '2rem' }}
-          />
-        </IconButton>
-      </Tooltip>
+      <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+        <Avatar
+          alt="COMPLETAR"
+          src="/static/images/avatar/2.jpg"
+          sx={{ width: '2rem', height: '2rem' }}
+        />
+      </IconButton>
       <Menu
-        sx={{ mt: '35px' }}
+        sx={{ mt: '42px' }}
         id="menu-appbar"
         anchorEl={anchorElUser}
         anchorOrigin={{
           vertical: 'top',
-          horizontal: 'left',
+          horizontal: 'center',
         }}
         keepMounted
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'left',
+          horizontal: 'center',
         }}
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        {menuOptions.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">{setting}</Typography>
-          </MenuItem>
-        ))}
+        <MenuItem
+          onClick={handleCloseUserMenu}
+          sx={{
+            '&:hover': { backgroundColor: '#A7B3B7 !important' },
+            borderRadius: '5px',
+          }}
+        >
+          <Typography>meu perfil</Typography>
+        </MenuItem>
+        <MenuItem
+          onClick={handleCloseUserMenu}
+          sx={{
+            '&:hover': { backgroundColor: '#A7B3B7 !important' },
+            borderRadius: '5px',
+          }}
+        >
+          <IconButton
+            aria-label="Botão de logout."
+            color='error'
+            sx={{
+              width: '1.2rem',
+              height: '1rem',
+            }}
+          >
+            <LogoutTwoToneIcon sx={{ width: '1.2rem' }} />
+          </IconButton>
+        </MenuItem>
       </Menu>
     </Box>
   );

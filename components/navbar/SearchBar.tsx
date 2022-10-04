@@ -32,14 +32,14 @@ function SearchBar() {
           sx={{
             '& > img': { borderRadius: '7px', mr: 2, flexShrink: 0 },
             '&:hover': { backgroundColor: '#A7B3B7 !important' },
-            borderRadius: '7px',
+            borderRadius: '5px',
           }}
         >
           <img
-            loading="lazy"
+            loading="eager"
             width="30"
             src={option.logo}
-            alt={option.name}
+            alt={`Logo da aplicação ${option.name}`}
           />
           {option.name}
         </Box>
@@ -47,7 +47,7 @@ function SearchBar() {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="busque uma aplicação..."
+          label="nome da aplicação..."
           InputLabelProps={{ style: { color: '#FFFFFF' } }}
           sx={{
             '& label.Mui-focused': { color: '#FFFFFF' },
