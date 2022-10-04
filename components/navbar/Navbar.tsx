@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { AppBar, CircularProgress, Toolbar } from '@mui/material';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
+import { setUsersInfoAC } from '../../redux/users/actions';
 // import { useRouter } from 'next/router';
 import ImgBtn from '../images/ImgBtn';
 import LinkBarLeft from './LinkBarLeft';
@@ -9,10 +10,9 @@ import LinkBarRight from './LinkBarRight';
 import AvatarMenu from './AvatarMenu';
 import HamburgerMenu from './HamburgerMenu';
 import getUserInfo from '../../services/GET/getUserInfo';
-import logo from '../../assets/logoDefault.png';
 import globalAlerts from '../../common/alerts';
+import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
-import { setUsersInfoAC } from '../../redux/users/actions';
 
 function Navbar() {
   const [isFetching, setIsFetching] = React.useState<boolean>(false);
@@ -84,4 +84,5 @@ function Navbar() {
     </AppBar>
   );
 }
+
 export default Navbar;
