@@ -15,7 +15,7 @@ function LinkBarRight() {
       alignItems={'center'}
       sx={{ width: 'fit-content' }}
     >
-      <Link href="/" passHref>
+      <Link href="/doar" passHref>
         <IconButton
           aria-label="Botão de acesso à página de doações."
           sx={{

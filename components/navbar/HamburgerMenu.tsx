@@ -23,7 +23,7 @@ function HamburgerMenu() {
       id: 3, pageName: 'web', path: '/web/apps', icon: <LaptopRoundedIcon sx={{ width: '1.2rem' }} />,
     },
     {
-      id: 4, pageName: 'donations', path: '/', icon: <ShowChartRoundedIcon sx={{ width: '1.2rem' }} />,
+      id: 4, pageName: 'donations', path: '/doar', icon: <ShowChartRoundedIcon sx={{ width: '1.2rem' }} />,
     },
   ];
 
