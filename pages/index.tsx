@@ -11,13 +11,13 @@ const Home: NextPage = () => (
     <Typography variant='h4'>
       Hello World!
     </Typography>
-    <Link href="acessar/conta" passHref>
+    <Link href="/acessar/conta" passHref>
       <Button variant="contained">Fazer Login</Button>
     </Link>
-    <Link href="mobile/apps" passHref>
+    <Link href="/mobile/apps" passHref>
       <Button variant="contained">Ir p/ Mobile</Button>
     </Link>
-    <Link href="web/apps" passHref>
+    <Link href="/web/apps" passHref>
       <Button variant="contained">Ir p/ Web</Button>
     </Link>
     <Button

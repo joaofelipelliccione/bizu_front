@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { AppBar, CircularProgress, Toolbar } from '@mui/material';
+import { AppBar, Toolbar, Button } from '@mui/material';
+import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
 import { setUsersInfoAC } from '../../redux/users/actions';
-// import { useRouter } from 'next/router';
 import ImgBtn from '../images/ImgBtn';
 import LinkBarLeft from './LinkBarLeft';
 import SearchBar from './SearchBar';
@@ -10,19 +10,15 @@ import LinkBarRight from './LinkBarRight';
 import AvatarMenu from './AvatarMenu';
 import HamburgerMenu from './HamburgerMenu';
 import getUserInfo from '../../services/GET/getUserInfo';
-import globalAlerts from '../../common/alerts';
 import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
 
 function Navbar() {
-  const [isFetching, setIsFetching] = React.useState<boolean>(false);
   const currentUserInfo = useAppSelector((state) => state.users);
   const dispatch = useAppDispatch();
-  // const router = useRouter();
 
   React.useEffect(() => {
     if (currentUserInfo.id === null) {
-      setIsFetching(true);
       getUserInfo().then((data) => {
         if ('statusCode' in data) {
           const payload = {
@@ -32,8 +28,6 @@ function Navbar() {
             profilePicture: null,
           };
           dispatch(setUsersInfoAC(payload));
-          globalAlerts('error', 'bottom', 'sessão expirada :(', 2500);
-          setIsFetching(false);
         }
 
         if ('username' in data) {
@@ -45,7 +39,6 @@ function Navbar() {
           };
 
           dispatch(setUsersInfoAC(payload));
-          setIsFetching(false);
         }
       });
     }
@@ -78,7 +71,18 @@ function Navbar() {
         <LinkBarLeft />
         <SearchBar />
         <LinkBarRight />
-        {isFetching ? <CircularProgress /> : <AvatarMenu /> }
+        {currentUserInfo.id === null ? (
+          <Link href="/acessar/conta" passHref>
+            <Button
+              className={styles.enterBtn}
+              variant="contained"
+            >
+              entrar
+            </Button>
+          </Link>
+        ) : (
+          <AvatarMenu />
+        ) }
         <HamburgerMenu />
       </Toolbar>
     </AppBar>

@@ -1,18 +1,33 @@
 import * as React from 'react';
-// import { useRouter } from 'next/router';
-// import Link from 'next/link';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
   Box, IconButton, Menu, MenuItem,
 } from '@mui/material';
-import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
 import LaptopRoundedIcon from '@mui/icons-material/LaptopRounded';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
 import styles from '../../styles/components/navbar.module.css';
 
 function HamburgerMenu() {
-  // const router = useRouter();
+  const content = [
+    {
+      id: 1, pageName: 'login', path: '/acessar/conta', icon: <LoginRoundedIcon sx={{ width: '1.2rem' }} />,
+    },
+    {
+      id: 2, pageName: 'mobile', path: '/mobile/apps', icon: <SmartphoneRoundedIcon sx={{ width: '1.2rem' }} />,
+    },
+    {
+      id: 3, pageName: 'web', path: '/web/apps', icon: <LaptopRoundedIcon sx={{ width: '1.2rem' }} />,
+    },
+    {
+      id: 4, pageName: 'donations', path: '/', icon: <ShowChartRoundedIcon sx={{ width: '1.2rem' }} />,
+    },
+  ];
+
+  const router = useRouter();
 
   const [anchorElHamburger, setAnchorElHamburger] = React.useState<null | HTMLElement>(null);
 
@@ -48,51 +63,25 @@ function HamburgerMenu() {
         open={Boolean(anchorElHamburger)}
         onClose={handleCloseMenu}
       >
-        <MenuItem onClick={handleCloseMenu}>
-          <IconButton
-            aria-label="Botão de acesso à página 'mobile'."
-            sx={{
-              width: '1.2rem',
-              height: '1.1rem',
-            }}
-          >
-            <SmartphoneRoundedIcon sx={{ width: '1.2rem' }} />
-          </IconButton>
-        </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <IconButton
-            aria-label="Botão de acesso à página 'web'."
-            sx={{
-              width: '1.2rem',
-              height: '1.1rem',
-            }}
-          >
-            <LaptopRoundedIcon sx={{ width: '1.2rem' }} />
-          </IconButton>
-        </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <IconButton
-            aria-label="Botão de acesso à página de doações."
-            sx={{
-              width: '1.2rem',
-              height: '1.1rem',
-            }}
-          >
-            <ShowChartRoundedIcon sx={{ width: '1.2rem' }} />
-          </IconButton>
-        </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <IconButton
-            aria-label="Botão de logout."
-            color='error'
-            sx={{
-              width: '1.2rem',
-              height: '1.1rem',
-            }}
-          >
-            <LogoutTwoToneIcon sx={{ width: '1.2rem' }} />
-          </IconButton>
-        </MenuItem>
+        {content.map(({
+          id, path, pageName, icon,
+        }) => (
+          <MenuItem key={id} onClick={handleCloseMenu}>
+            <Link href={path} passHref>
+              <IconButton
+                aria-label={`Botão de acesso à página ${pageName}.`}
+                disabled={router.pathname === path}
+                sx={{
+                  width: '1.2rem',
+                  height: '1.1rem',
+                  marginTop: '0.7rem',
+                }}
+              >
+                {icon}
+              </IconButton>
+            </Link>
+          </MenuItem>
+        ))}
       </Menu>
     </Box>
   );
