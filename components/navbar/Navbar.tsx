@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { AppBar, Toolbar, Button } from '@mui/material';
-import Link from 'next/link';
+import { AppBar, CircularProgress, Toolbar } from '@mui/material';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
 import { setUsersInfoAC } from '../../redux/users/actions';
 import ImgBtn from '../images/ImgBtn';
@@ -16,9 +15,11 @@ import styles from '../../styles/components/navbar.module.css';
 function Navbar() {
   const currentUserInfo = useAppSelector((state) => state.users);
   const dispatch = useAppDispatch();
+  const [isFetching, setIsFetching] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     if (currentUserInfo.id === null) {
+      setIsFetching(true);
       getUserInfo().then((data) => {
         if ('statusCode' in data) {
           const payload = {
@@ -28,17 +29,19 @@ function Navbar() {
             profilePicture: null,
           };
           dispatch(setUsersInfoAC(payload));
+          setIsFetching(false);
         }
 
         if ('username' in data) {
+          setIsFetching(true);
           const payload = {
             id: data.id,
             username: data.username,
             email: data.email,
             profilePicture: data.profilePicture,
           };
-
           dispatch(setUsersInfoAC(payload));
+          setIsFetching(false);
         }
       });
     }
@@ -71,18 +74,7 @@ function Navbar() {
         <LinkBarLeft />
         <SearchBar />
         <LinkBarRight />
-        {currentUserInfo.id === null ? (
-          <Link href="/acessar/conta" passHref>
-            <Button
-              className={styles.enterBtn}
-              variant="contained"
-            >
-              entrar
-            </Button>
-          </Link>
-        ) : (
-          <AvatarMenu />
-        ) }
+        {isFetching ? <CircularProgress /> : <AvatarMenu />}
         <HamburgerMenu />
       </Toolbar>
     </AppBar>
