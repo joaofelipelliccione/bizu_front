@@ -1,14 +1,16 @@
 import * as React from 'react';
 // import { useRouter } from 'next/router';
-// import Link from 'next/link';
+import Link from 'next/link';
 import {
   Box, IconButton, Menu, Avatar, MenuItem, Typography,
 } from '@mui/material';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
+import { useAppSelector } from '../../hooks/redux/useRedux';
 // import styles from '../../styles/components/navbar.module.css';
 
 function AvatarMenu() {
   // const router = useRouter();
+  const currentUserInfo = useAppSelector((state) => state.users);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -23,8 +25,8 @@ function AvatarMenu() {
     <Box sx={{ flexGrow: 0 }}>
       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
         <Avatar
-          alt="COMPLETAR"
-          src="/static/images/avatar/2.jpg"
+          alt={currentUserInfo.username}
+          src={currentUserInfo.profilePicture}
           sx={{ width: '2rem', height: '2rem' }}
         />
       </IconButton>
@@ -51,7 +53,9 @@ function AvatarMenu() {
             borderRadius: '5px',
           }}
         >
-          <Typography>meu perfil</Typography>
+          <Link href='/' passHref>
+            <Typography>meu perfil</Typography>
+          </Link>
         </MenuItem>
         <MenuItem
           onClick={handleCloseUserMenu}
