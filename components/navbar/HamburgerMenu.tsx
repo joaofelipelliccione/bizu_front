@@ -13,7 +13,7 @@ import { useAppSelector } from '../../hooks/redux/useRedux';
 import styles from '../../styles/components/navbar.module.css';
 
 function HamburgerMenu() {
-  const content = [
+  const menuContent = [
     {
       id: 1, pageName: 'mobile', path: '/mobile/apps', icon: <SmartphoneRoundedIcon sx={{ width: '1.2rem' }} />,
     },
@@ -79,7 +79,7 @@ function HamburgerMenu() {
             </IconButton>
           </Link>
         </MenuItem>}
-        {content.map(({
+        {menuContent.map(({
           id, path, pageName, icon,
         }) => (
           <MenuItem key={id} onClick={handleCloseMenu}>
