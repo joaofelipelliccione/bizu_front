@@ -86,19 +86,16 @@ export default function SignUpForm() {
             }}
           />
         ))}
-        <Link href="/" passHref>
-          <Typography
-            color='primary'
-            alignSelf={'flex-start'}
-            variant="subtitle1"
-            sx={{
-              cursor: 'pointer',
-              fontSize: '0.85rem',
-            }}
-          >
-            ao clicar no botão abaixo, você aceita nossa política de privacidade e termos de uso
-          </Typography>
-        </Link>
+        <Typography
+          color='primary'
+          alignSelf={'flex-start'}
+          variant="subtitle1"
+          sx={{
+            fontSize: '0.85rem',
+          }}
+        >
+            ao clicar no botão abaixo, você aceita nossa política de privacidade e termos de uso!
+        </Typography>
         <Button
           type="button"
           onClick={onSubmit}
