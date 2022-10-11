@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import {
   Button, Grid, IconButton, LinearProgress, TextField, Typography,
 } from '@mui/material';
@@ -128,17 +127,16 @@ export default function SignUpForm() {
         >
           voltar
         </Button>
-        <Link href="/" passHref>
-          <IconButton
-            aria-label="homepage"
-            sx={{
-              alignSelf: 'center',
-              width: 'fit-content',
-            }}
-          >
-            <HomeRoundedIcon />
-          </IconButton>
-        </Link>
+        <IconButton
+          aria-label="homepage"
+          onClick={() => router.push('/')}
+          sx={{
+            alignSelf: 'center',
+            width: 'fit-content',
+          }}
+        >
+          <HomeRoundedIcon />
+        </IconButton>
       </Grid>
     </Grid>
   );

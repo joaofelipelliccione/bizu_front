@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {
   Box, IconButton, Menu, MenuItem,
@@ -64,38 +63,36 @@ function HamburgerMenu() {
       >
         {currentUserInfo.id === null
         && <MenuItem onClick={handleCloseMenu}>
-          <Link href='/acessar/conta' passHref>
+          <IconButton
+            aria-label={'Botão de acesso à página de login.'}
+            color='secondary'
+            onClick={() => router.push('/acessar/conta')}
+            disabled={router.pathname === '/acessar/conta'}
+            sx={{
+              width: '1.2rem',
+              height: '1.1rem',
+              marginTop: '0.7rem',
+            }}
+          >
+            <LoginRoundedIcon sx={{ width: '1.2rem' }} />
+          </IconButton>
+        </MenuItem>}
+        {menuContent.map(({
+          id, path, pageName, icon,
+        }) => (
+          <MenuItem key={id} onClick={handleCloseMenu}>
             <IconButton
-              color='secondary'
-              aria-label={'Botão de acesso à página de login.'}
-              disabled={router.pathname === '/acessar/conta'}
+              aria-label={`Botão de acesso à página ${pageName}.`}
+              onClick={() => router.push(path)}
+              disabled={router.pathname === path}
               sx={{
                 width: '1.2rem',
                 height: '1.1rem',
                 marginTop: '0.7rem',
               }}
             >
-              <LoginRoundedIcon sx={{ width: '1.2rem' }} />
+              {icon}
             </IconButton>
-          </Link>
-        </MenuItem>}
-        {menuContent.map(({
-          id, path, pageName, icon,
-        }) => (
-          <MenuItem key={id} onClick={handleCloseMenu}>
-            <Link href={path} passHref>
-              <IconButton
-                aria-label={`Botão de acesso à página ${pageName}.`}
-                disabled={router.pathname === path}
-                sx={{
-                  width: '1.2rem',
-                  height: '1.1rem',
-                  marginTop: '0.7rem',
-                }}
-              >
-                {icon}
-              </IconButton>
-            </Link>
           </MenuItem>
         ))}
       </Menu>

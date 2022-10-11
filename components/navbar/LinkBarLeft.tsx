@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { Grid, IconButton } from '@mui/material';
 import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
 import LaptopRoundedIcon from '@mui/icons-material/LaptopRounded';
-import Link from 'next/link';
 import styles from '../../styles/components/navbar.module.css';
 
 function LinkBarLeft() {
@@ -30,18 +29,18 @@ function LinkBarLeft() {
       {content.map(({
         id, path, pageName, icon,
       }) => (
-        <Link key={id} href={path} passHref>
-          <IconButton
-            aria-label={`Botão de acesso à página ${pageName}`}
-            disabled={router.pathname === path}
-            sx={{
-              alignSelf: 'center',
-              width: 'fit-content',
-            }}
-          >
-            {icon}
-          </IconButton>
-        </Link>
+        <IconButton
+          key={id}
+          aria-label={`Botão de acesso à página ${pageName}`}
+          onClick={() => router.push(path)}
+          disabled={router.pathname === path}
+          sx={{
+            alignSelf: 'center',
+            width: 'fit-content',
+          }}
+        >
+          {icon}
+        </IconButton>
       ))}
     </Grid>
   );

@@ -42,9 +42,7 @@ export default function SignInForm() {
         },
       }}
     >
-      <Grid
-        item
-      >
+      <Grid item>
         <Typography
           variant='h1'
           color={'primary'}
@@ -55,10 +53,7 @@ export default function SignInForm() {
           LOGIN
         </Typography>
       </Grid>
-      <Grid
-        container
-        flexDirection={'column'}
-      >
+      <Grid container flexDirection={'column'}>
         {formInputs.map(({
           id, inputType, inputLabel, inputName, errorMessage,
         }) => (
@@ -68,9 +63,9 @@ export default function SignInForm() {
             type={inputType}
             label={inputLabel}
             {...register(inputName as any)}
+            color='primary'
             variant="standard"
             size="small"
-            color='primary'
             fullWidth
             error={!!errorMessage}
             helperText={errorMessage}
@@ -96,8 +91,8 @@ export default function SignInForm() {
         <Button
           type="button"
           onClick={onSubmit}
-          variant="contained"
           color="secondary"
+          variant="contained"
           size="small"
           disabled={isFetching}
           sx={{
@@ -107,7 +102,7 @@ export default function SignInForm() {
         >
           acessar
         </Button>
-        {isFetching && <LinearProgress />}
+        {isFetching && <LinearProgress sx={{ borderRadius: '3px' }} />}
         <Button
           type="button"
           onClick={() => router.push('/registrar/conta')}
@@ -125,17 +120,16 @@ export default function SignInForm() {
         >
           ainda não faço parte
         </Button>
-        <Link href="/" passHref>
-          <IconButton
-            aria-label="homepage"
-            sx={{
-              alignSelf: 'center',
-              width: 'fit-content',
-            }}
-          >
-            <HomeRoundedIcon />
-          </IconButton>
-        </Link>
+        <IconButton
+          aria-label="homepage"
+          onClick={() => router.push('/')}
+          sx={{
+            alignSelf: 'center',
+            width: 'fit-content',
+          }}
+        >
+          <HomeRoundedIcon />
+        </IconButton>
       </Grid>
     </Grid>
   );

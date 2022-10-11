@@ -1,12 +1,11 @@
 import * as React from 'react';
-// import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Grid, IconButton } from '@mui/material';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
 import styles from '../../styles/components/navbar.module.css';
 
 function LinkBarRight() {
-  // const router = useRouter();
+  const router = useRouter();
 
   return (
     <Grid
@@ -15,17 +14,16 @@ function LinkBarRight() {
       alignItems={'center'}
       sx={{ width: 'fit-content' }}
     >
-      <Link href="/doar" passHref>
-        <IconButton
-          aria-label="Botão de acesso à página de doações."
-          sx={{
-            alignSelf: 'center',
-            width: 'fit-content',
-          }}
-        >
-          <ShowChartRoundedIcon />
-        </IconButton>
-      </Link>
+      <IconButton
+        aria-label="Botão de acesso à página de doações."
+        onClick={() => router.push('/doar')}
+        sx={{
+          alignSelf: 'center',
+          width: 'fit-content',
+        }}
+      >
+        <ShowChartRoundedIcon />
+      </IconButton>
     </Grid>
   );
 }
