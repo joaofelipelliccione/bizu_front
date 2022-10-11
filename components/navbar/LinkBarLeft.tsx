@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import { Grid, IconButton } from '@mui/material';
+import { Grid, IconButton, Tooltip } from '@mui/material';
 import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
 import LaptopRoundedIcon from '@mui/icons-material/LaptopRounded';
 import styles from '../../styles/components/navbar.module.css';
@@ -8,10 +8,10 @@ import styles from '../../styles/components/navbar.module.css';
 function LinkBarLeft() {
   const content = [
     {
-      id: 1, pageName: 'mobile', path: '/mobile/apps', icon: <SmartphoneRoundedIcon />,
+      id: 1, pageName: 'mobile apps', path: '/mobile/apps', icon: <SmartphoneRoundedIcon />,
     },
     {
-      id: 2, pageName: 'web', path: '/web/apps', icon: <LaptopRoundedIcon />,
+      id: 2, pageName: 'web apps', path: '/web/apps', icon: <LaptopRoundedIcon />,
     },
   ];
 
@@ -29,18 +29,19 @@ function LinkBarLeft() {
       {content.map(({
         id, path, pageName, icon,
       }) => (
-        <IconButton
-          key={id}
-          aria-label={`Botão de acesso à página ${pageName}`}
-          onClick={() => router.push(path)}
-          disabled={router.pathname === path}
-          sx={{
-            alignSelf: 'center',
-            width: 'fit-content',
-          }}
-        >
-          {icon}
-        </IconButton>
+        <Tooltip key={id} title={pageName}>
+          <IconButton
+            aria-label={`Botão de acesso à página ${pageName}`}
+            onClick={() => router.push(path)}
+            disabled={router.pathname === path}
+            sx={{
+              alignSelf: 'center',
+              width: 'fit-content',
+            }}
+          >
+            {icon}
+          </IconButton>
+        </Tooltip>
       ))}
     </Grid>
   );

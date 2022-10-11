@@ -2,7 +2,7 @@ import * as React from 'react';
 // import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {
-  Box, IconButton, Menu, Avatar, MenuItem, Typography,
+  Box, Tooltip, IconButton, Menu, Avatar, MenuItem, Typography,
 } from '@mui/material';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import { useAppSelector } from '../../hooks/redux/useRedux';
@@ -23,13 +23,15 @@ function AvatarMenu() {
 
   return (
     <Box sx={{ flexGrow: 0 }}>
-      <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-        <Avatar
-          alt={currentUserInfo.username}
-          src={currentUserInfo.profilePicture}
-          sx={{ width: '2rem', height: '2rem' }}
-        />
-      </IconButton>
+      <Tooltip title={currentUserInfo.username}>
+        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Avatar
+            alt={currentUserInfo.username}
+            src={currentUserInfo.profilePicture}
+            sx={{ width: '2rem', height: '2rem' }}
+          />
+        </IconButton>
+      </Tooltip>
       <Menu
         sx={{ mt: '42px' }}
         id="menu-appbar"

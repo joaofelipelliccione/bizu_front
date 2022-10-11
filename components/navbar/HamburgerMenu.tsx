@@ -7,7 +7,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
 import LaptopRoundedIcon from '@mui/icons-material/LaptopRounded';
-import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
+import SavingsRoundedIcon from '@mui/icons-material/SavingsRounded';
 import { useAppSelector } from '../../hooks/redux/useRedux';
 import styles from '../../styles/components/navbar.module.css';
 
@@ -20,7 +20,7 @@ function HamburgerMenu() {
       id: 2, pageName: 'web', path: '/web/apps', icon: <LaptopRoundedIcon sx={{ width: '1.2rem' }} />,
     },
     {
-      id: 3, pageName: 'donations', path: '/doar', icon: <ShowChartRoundedIcon sx={{ width: '1.2rem' }} />,
+      id: 3, pageName: 'donations', path: '/doar', icon: <SavingsRoundedIcon sx={{ width: '1.2rem' }} />,
     },
   ];
 

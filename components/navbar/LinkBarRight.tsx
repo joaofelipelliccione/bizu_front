@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import { Grid, IconButton } from '@mui/material';
-import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
+import { Grid, IconButton, Tooltip } from '@mui/material';
+import SavingsRoundedIcon from '@mui/icons-material/SavingsRounded';
 import styles from '../../styles/components/navbar.module.css';
 
 function LinkBarRight() {
@@ -14,16 +14,18 @@ function LinkBarRight() {
       alignItems={'center'}
       sx={{ width: 'fit-content' }}
     >
-      <IconButton
-        aria-label="Botão de acesso à página de doações."
-        onClick={() => router.push('/doar')}
-        sx={{
-          alignSelf: 'center',
-          width: 'fit-content',
-        }}
-      >
-        <ShowChartRoundedIcon />
-      </IconButton>
+      <Tooltip title='nos ajude a crescer :)'>
+        <IconButton
+          aria-label="Botão de acesso à página de doações."
+          onClick={() => router.push('/doar')}
+          sx={{
+            alignSelf: 'center',
+            width: 'fit-content',
+          }}
+        >
+          <SavingsRoundedIcon />
+        </IconButton>
+      </Tooltip>
     </Grid>
   );
 }

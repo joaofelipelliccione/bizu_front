@@ -109,7 +109,7 @@ export default function SignUpForm() {
         >
           aceitar e criar conta
         </Button>
-        {isFetching && <LinearProgress />}
+        {isFetching && <LinearProgress sx={{ borderRadius: '3px' }} />}
         <Button
           type="button"
           onClick={() => router.push('/acessar/conta')}
