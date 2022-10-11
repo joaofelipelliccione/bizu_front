@@ -1,8 +1,11 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { AppBar, Toolbar, Button } from '@mui/material';
+import {
+  AppBar, Toolbar, Button, LinearProgress,
+} from '@mui/material';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
 import { setUsersInfoAC } from '../../redux/users/actions';
+import { navbarLoaderAC } from '../../redux/navbarLoader/actions';
 import ImgBtn from '../images/ImgBtn';
 import LinkBarLeft from './LinkBarLeft';
 import SearchBar from './SearchBar';
@@ -15,10 +18,13 @@ import styles from '../../styles/components/navbar.module.css';
 
 function Navbar() {
   const currentUserInfo = useAppSelector((state) => state.users);
+  const isNavbarLoaderActive = useAppSelector((state) => state.navbarLoader.isActive);
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     if (currentUserInfo.id === null) {
+      dispatch(navbarLoaderAC(true));
+
       getUserInfo().then((data) => {
         if ('statusCode' in data) {
           const payload = {
@@ -28,6 +34,7 @@ function Navbar() {
             profilePicture: null,
           };
           dispatch(setUsersInfoAC(payload));
+          dispatch(navbarLoaderAC(false));
         }
 
         if ('username' in data) {
@@ -38,6 +45,7 @@ function Navbar() {
             profilePicture: data.profilePicture,
           };
           dispatch(setUsersInfoAC(payload));
+          dispatch(navbarLoaderAC(false));
         }
       });
     }
@@ -91,6 +99,7 @@ function Navbar() {
         )}
         <HamburgerMenu />
       </Toolbar>
+      {isNavbarLoaderActive && <LinearProgress color='secondary' />}
     </AppBar>
   );
 }
