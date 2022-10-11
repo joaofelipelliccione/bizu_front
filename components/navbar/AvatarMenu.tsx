@@ -79,4 +79,5 @@ function AvatarMenu() {
     </Box>
   );
 }
+
 export default AvatarMenu;

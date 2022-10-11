@@ -102,4 +102,5 @@ function HamburgerMenu() {
     </Box>
   );
 }
+
 export default HamburgerMenu;

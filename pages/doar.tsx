@@ -1,8 +1,8 @@
 import { Typography } from '@mui/material';
 import type { NextPage } from 'next';
-import styles from '../styles/pages/doar.module.css';
+import styles from '../styles/pages/donate.module.css';
 
-const RouteToCopy: NextPage = () => (
+const Donate: NextPage = () => (
   <main className={styles.donationsPage}>
     <Typography variant='h4'>
       Página de doação
@@ -10,4 +10,4 @@ const RouteToCopy: NextPage = () => (
   </main>
 );
 
-export default RouteToCopy;
+export default Donate;

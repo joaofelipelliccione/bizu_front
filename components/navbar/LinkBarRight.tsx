@@ -29,4 +29,5 @@ function LinkBarRight() {
     </Grid>
   );
 }
+
 export default LinkBarRight;

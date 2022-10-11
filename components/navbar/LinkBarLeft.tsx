@@ -7,6 +7,15 @@ import Link from 'next/link';
 import styles from '../../styles/components/navbar.module.css';
 
 function LinkBarLeft() {
+  const content = [
+    {
+      id: 1, pageName: 'mobile', path: '/mobile/apps', icon: <SmartphoneRoundedIcon />,
+    },
+    {
+      id: 2, pageName: 'web', path: '/web/apps', icon: <LaptopRoundedIcon />,
+    },
+  ];
+
   const router = useRouter();
 
   return (
@@ -18,30 +27,22 @@ function LinkBarLeft() {
         width: { md: '16%', lg: '12%' },
       }}
     >
-      <Link href="/mobile/apps" passHref>
-        <IconButton
-          aria-label="Botão de acesso à página 'mobile'."
-          disabled={router.pathname === '/mobile/apps'}
-          sx={{
-            alignSelf: 'center',
-            width: 'fit-content',
-          }}
-        >
-          <SmartphoneRoundedIcon />
-        </IconButton>
-      </Link>
-      <Link href="/web/apps" passHref>
-        <IconButton
-          aria-label="Botão de acesso à página 'web'."
-          disabled={router.pathname === '/web/apps'}
-          sx={{
-            alignSelf: 'center',
-            width: 'fit-content',
-          }}
-        >
-          <LaptopRoundedIcon />
-        </IconButton>
-      </Link>
+      {content.map(({
+        id, path, pageName, icon,
+      }) => (
+        <Link key={id} href={path} passHref>
+          <IconButton
+            aria-label={`Botão de acesso à página ${pageName}`}
+            disabled={router.pathname === path}
+            sx={{
+              alignSelf: 'center',
+              width: 'fit-content',
+            }}
+          >
+            {icon}
+          </IconButton>
+        </Link>
+      ))}
     </Grid>
   );
 }
