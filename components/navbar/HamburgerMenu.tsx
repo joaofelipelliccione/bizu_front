@@ -9,26 +9,25 @@ import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
 import LaptopRoundedIcon from '@mui/icons-material/LaptopRounded';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
+import { useAppSelector } from '../../hooks/redux/useRedux';
 import styles from '../../styles/components/navbar.module.css';
 
 function HamburgerMenu() {
   const content = [
     {
-      id: 1, pageName: 'login', path: '/acessar/conta', icon: <LoginRoundedIcon sx={{ width: '1.2rem' }} />,
+      id: 1, pageName: 'mobile', path: '/mobile/apps', icon: <SmartphoneRoundedIcon sx={{ width: '1.2rem' }} />,
     },
     {
-      id: 2, pageName: 'mobile', path: '/mobile/apps', icon: <SmartphoneRoundedIcon sx={{ width: '1.2rem' }} />,
+      id: 2, pageName: 'web', path: '/web/apps', icon: <LaptopRoundedIcon sx={{ width: '1.2rem' }} />,
     },
     {
-      id: 3, pageName: 'web', path: '/web/apps', icon: <LaptopRoundedIcon sx={{ width: '1.2rem' }} />,
-    },
-    {
-      id: 4, pageName: 'donations', path: '/doar', icon: <ShowChartRoundedIcon sx={{ width: '1.2rem' }} />,
+      id: 3, pageName: 'donations', path: '/doar', icon: <ShowChartRoundedIcon sx={{ width: '1.2rem' }} />,
     },
   ];
 
   const router = useRouter();
 
+  const currentUserInfo = useAppSelector((state) => state.users);
   const [anchorElHamburger, setAnchorElHamburger] = React.useState<null | HTMLElement>(null);
 
   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -63,6 +62,23 @@ function HamburgerMenu() {
         open={Boolean(anchorElHamburger)}
         onClose={handleCloseMenu}
       >
+        {currentUserInfo.id === null
+        && <MenuItem onClick={handleCloseMenu}>
+          <Link href='/acessar/conta' passHref>
+            <IconButton
+              color='secondary'
+              aria-label={'Botão de acesso à página de login.'}
+              disabled={router.pathname === '/acessar/conta'}
+              sx={{
+                width: '1.2rem',
+                height: '1.1rem',
+                marginTop: '0.7rem',
+              }}
+            >
+              <LoginRoundedIcon sx={{ width: '1.2rem' }} />
+            </IconButton>
+          </Link>
+        </MenuItem>}
         {content.map(({
           id, path, pageName, icon,
         }) => (
