@@ -75,6 +75,12 @@ function Navbar() {
             <Button
               className={styles.enterBtn}
               variant="contained"
+              color='secondary'
+              sx={{
+                border: 'solid 1px #FFFFFF',
+                borderRadius: '36px',
+                opacity: '0.65',
+              }}
             >
           entrar
             </Button>
