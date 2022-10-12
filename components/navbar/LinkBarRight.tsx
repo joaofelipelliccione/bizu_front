@@ -15,16 +15,18 @@ function LinkBarRight() {
       sx={{ width: 'fit-content' }}
     >
       <Tooltip title='nos ajude a crescer :)'>
-        <IconButton
-          aria-label="Botão de acesso à página de doações."
-          onClick={() => router.push('/doar')}
-          sx={{
-            alignSelf: 'center',
-            width: 'fit-content',
-          }}
-        >
-          <SavingsRoundedIcon />
-        </IconButton>
+        <span>
+          <IconButton
+            aria-label="Botão de acesso à página de doações."
+            onClick={() => router.push('/doar')}
+            sx={{
+              alignSelf: 'center',
+              width: 'fit-content',
+            }}
+          >
+            <SavingsRoundedIcon />
+          </IconButton>
+        </span>
       </Tooltip>
     </Grid>
   );

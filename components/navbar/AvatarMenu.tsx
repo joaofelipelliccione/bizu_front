@@ -24,13 +24,15 @@ function AvatarMenu() {
   return (
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title={currentUserInfo.username}>
-        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar
-            alt={currentUserInfo.username}
-            src={currentUserInfo.profilePicture}
-            sx={{ width: '2rem', height: '2rem' }}
-          />
-        </IconButton>
+        <div>
+          <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+            <Avatar
+              alt={currentUserInfo.username}
+              src={currentUserInfo.profilePicture}
+              sx={{ width: '2rem', height: '2rem' }}
+            />
+          </IconButton>
+        </div>
       </Tooltip>
       <Menu
         sx={{ mt: '42px' }}

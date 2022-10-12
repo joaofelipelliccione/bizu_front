@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import {
   AppBar, Toolbar, Button, LinearProgress,
 } from '@mui/material';
+import bizuAxios from '../../services/bizuAxios';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
 import { setUsersInfoAC } from '../../redux/users/actions';
 import { navbarLoaderAC } from '../../redux/navbarLoader/actions';
@@ -12,7 +13,7 @@ import SearchBar from './SearchBar';
 import LinkBarRight from './LinkBarRight';
 import AvatarMenu from './AvatarMenu';
 import HamburgerMenu from './HamburgerMenu';
-import getUserInfo from '../../services/GET/getUserInfo';
+// import getUserInfo from '../../services/GET/getUserInfo';
 import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
 
@@ -23,22 +24,10 @@ function Navbar() {
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-    if (currentUserInfo.id === null) {
+    if (!currentUserInfo.id) {
       dispatch(navbarLoaderAC(true));
-
-      getUserInfo().then((data) => {
-        if ('statusCode' in data) {
-          const payload = {
-            id: null,
-            username: null,
-            email: null,
-            profilePicture: null,
-          };
-          dispatch(setUsersInfoAC(payload));
-          dispatch(navbarLoaderAC(false));
-        }
-
-        if ('username' in data) {
+      bizuAxios.get('/users/current')
+        .then(({ data }) => {
           const payload = {
             id: data.id,
             username: data.username,
@@ -47,8 +36,17 @@ function Navbar() {
           };
           dispatch(setUsersInfoAC(payload));
           dispatch(navbarLoaderAC(false));
-        }
-      });
+        })
+        .catch(() => {
+          const payload = {
+            id: null,
+            username: null,
+            email: null,
+            profilePicture: null,
+          };
+          dispatch(setUsersInfoAC(payload));
+          dispatch(navbarLoaderAC(false));
+        });
     }
   }, [currentUserInfo.id, dispatch]);
 
@@ -79,7 +77,7 @@ function Navbar() {
         <LinkBarLeft />
         <SearchBar />
         <LinkBarRight />
-        {currentUserInfo.id === null ? (
+        {!currentUserInfo.id ? (
           <Button
             className={styles.enterBtn}
             onClick={() => router.push('/acessar/conta')}

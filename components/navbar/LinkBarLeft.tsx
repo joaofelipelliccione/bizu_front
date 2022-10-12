@@ -30,17 +30,19 @@ function LinkBarLeft() {
         id, path, pageName, icon,
       }) => (
         <Tooltip key={id} title={pageName}>
-          <IconButton
-            aria-label={`Botão de acesso à página ${pageName}`}
-            onClick={() => router.push(path)}
-            disabled={router.pathname === path}
-            sx={{
-              alignSelf: 'center',
-              width: 'fit-content',
-            }}
-          >
-            {icon}
-          </IconButton>
+          <span>
+            <IconButton
+              aria-label={`Botão de acesso à página ${pageName}`}
+              onClick={() => router.push(path)}
+              disabled={router.pathname === path}
+              sx={{
+                alignSelf: 'center',
+                width: 'fit-content',
+              }}
+            >
+              {icon}
+            </IconButton>
+          </span>
         </Tooltip>
       ))}
     </Grid>

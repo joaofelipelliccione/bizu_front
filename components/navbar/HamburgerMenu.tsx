@@ -61,7 +61,7 @@ function HamburgerMenu() {
         open={Boolean(anchorElHamburger)}
         onClose={handleCloseMenu}
       >
-        {currentUserInfo.id === null
+        {!currentUserInfo.id
         && <MenuItem onClick={handleCloseMenu}>
           <IconButton
             aria-label={'Botão de acesso à página de login.'}
