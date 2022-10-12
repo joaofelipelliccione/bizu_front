@@ -21,6 +21,7 @@ bizuAxios.interceptors.response.use(
       return Promise.reject(error);
     }
 
+    globalAlerts('error', 'bottom', 'ops, algo não saiu como esperado... tente novamente em alguns minutos!', 4000);
     return Promise.reject(error);
   },
 );

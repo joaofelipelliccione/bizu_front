@@ -10,7 +10,7 @@ function SearchBar() {
   const [searchBarApps, setSearchBarApps] = React.useState<ISearchBarAppsResult[]>([]);
 
   React.useEffect(() => {
-    getSearchBarApps('all').then((data) => setSearchBarApps(data));
+    getSearchBarApps('all').then((resp) => setSearchBarApps(resp));
   }, []);
 
   return (
