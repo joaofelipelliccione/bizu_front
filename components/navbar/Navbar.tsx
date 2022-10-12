@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import {
   AppBar, Toolbar, Button, LinearProgress,
 } from '@mui/material';
-import bizuAxiosInterceptor from '../../services/bizuAxiosInterceptor';
+import bizuAxiosInterceptor from '../../services/axiosInstances/bizuAxiosInterceptor';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
 import { setUsersInfoAC } from '../../redux/users/actions';
 import { navbarLoaderAC } from '../../redux/navbarLoader/actions';

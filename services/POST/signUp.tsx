@@ -1,5 +1,5 @@
 import axios from 'axios';
-import bizuAxiosPlain from '../bizuAxiosPlain';
+import bizuAxiosPlain from '../axiosInstances/bizuAxiosPlain';
 import { ISignUpFormData } from '../../interfaces/users';
 import { IGenericResponse } from '../../interfaces/genericResponse';
 

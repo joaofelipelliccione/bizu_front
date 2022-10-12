@@ -1,7 +1,5 @@
 import axios from 'axios';
-
-// const BASE_URL = 'http://localhost:3001';
-const BASE_URL = 'https://www.api.bizudesign.io';
+import BASE_URL from './baseUrl';
 
 const bizuAxiosPlain = axios.create({
   baseURL: BASE_URL,

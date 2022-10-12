@@ -1,9 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import Router from 'next/router';
-import globalAlerts from '../common/alerts';
-
-// const BASE_URL = 'http://localhost:3001';
-const BASE_URL = 'https://www.api.bizudesign.io';
+import BASE_URL from './baseUrl';
+import globalAlerts from '../../common/alerts';
 
 const bizuAxiosInterceptor = axios.create({
   baseURL: BASE_URL,

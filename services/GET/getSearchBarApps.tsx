@@ -1,4 +1,4 @@
-import bizuAxiosPlain from '../bizuAxiosPlain';
+import bizuAxiosPlain from '../axiosInstances/bizuAxiosPlain';
 import { ISearchBarAppsResult } from '../../interfaces/apps';
 
 const getSearchBarApps = async (platform: string):
