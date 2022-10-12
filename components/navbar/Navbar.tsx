@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import {
   AppBar, Toolbar, Button, LinearProgress,
 } from '@mui/material';
-import bizuAxios from '../../services/bizuAxios';
+import bizuAxiosInterceptor from '../../services/bizuAxiosInterceptor';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
 import { setUsersInfoAC } from '../../redux/users/actions';
 import { navbarLoaderAC } from '../../redux/navbarLoader/actions';
@@ -13,7 +13,6 @@ import SearchBar from './SearchBar';
 import LinkBarRight from './LinkBarRight';
 import AvatarMenu from './AvatarMenu';
 import HamburgerMenu from './HamburgerMenu';
-// import getUserInfo from '../../services/GET/getUserInfo';
 import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
 
@@ -26,7 +25,7 @@ function Navbar() {
   React.useEffect(() => {
     if (!currentUserInfo.id) {
       dispatch(navbarLoaderAC(true));
-      bizuAxios.get('/users/current')
+      bizuAxiosInterceptor.get('/users/current')
         .then(({ data }) => {
           const payload = {
             id: data.id,

@@ -1,8 +1,8 @@
-import bizuAxios from '../bizuAxios';
+import bizuAxiosPlain from '../bizuAxiosPlain';
 import { ISearchBarAppsResult } from '../../interfaces/apps';
 
 const getSearchBarApps = async (platform: string):
-  Promise<ISearchBarAppsResult[] | []> => bizuAxios.get(`/apps/searchbar?platform=${platform}`)
+  Promise<ISearchBarAppsResult[] | []> => bizuAxiosPlain.get(`/apps/searchbar?platform=${platform}`)
   .then(({ data }) => data)
   .catch(() => []);
 

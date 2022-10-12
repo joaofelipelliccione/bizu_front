@@ -1,10 +1,11 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
+import Router from 'next/router';
 import globalAlerts from '../common/alerts';
 
 // const BASE_URL = 'http://localhost:3001';
 const BASE_URL = 'https://www.api.bizudesign.io';
 
-const bizuAxios = axios.create({
+const bizuAxiosInterceptor = axios.create({
   baseURL: BASE_URL,
   timeout: 5000,
   withCredentials: true,
@@ -13,12 +14,16 @@ const bizuAxios = axios.create({
   },
 });
 
-bizuAxios.interceptors.response.use(
+bizuAxiosInterceptor.interceptors.response.use(
   (response: AxiosResponse) => response,
   (error: AxiosError) => {
     if (error.response?.status === 401) {
-      globalAlerts('warning', 'bottom', 'faça seu login : )', 2500);
-      return Promise.reject(error);
+      if (Router.pathname === '/') {
+        return Promise.reject(error);
+      }
+
+      Router.push('/acessar/conta');
+      return globalAlerts('warning', 'bottom', 'faça seu login : )', 2500);
     }
 
     globalAlerts('error', 'bottom', 'ops, algo não saiu como esperado... tente novamente em alguns minutos!', 4000);
@@ -26,4 +31,4 @@ bizuAxios.interceptors.response.use(
   },
 );
 
-export default bizuAxios;
+export default bizuAxiosInterceptor;
