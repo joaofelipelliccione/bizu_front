@@ -3,6 +3,8 @@ import { ISignUpFormData } from '../../interfaces/users';
 import { IGenericResponse } from '../../interfaces/genericResponse';
 import bizuAxios from '../bizuAxios';
 
+bizuAxios.interceptors.response.eject(0); // Removendo interceptador da instância.
+
 const signUp = async (payload: ISignUpFormData):
   Promise<IGenericResponse> => bizuAxios.post('/users', payload)
   .then(({ data }) => data)
