@@ -3,7 +3,7 @@ import Router from 'next/router';
 import BASE_URL from './baseUrl';
 import globalAlerts from '../../common/alerts';
 
-const blockedRoutes = ['/mobile/apps', '/web/apps'];
+const blockedRoutes = ['/perfil/alterar'];
 
 const bizuAxiosInterceptor = axios.create({
   baseURL: BASE_URL,

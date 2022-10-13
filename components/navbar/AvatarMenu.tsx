@@ -57,7 +57,7 @@ function AvatarMenu() {
             borderRadius: '5px',
           }}
         >
-          <Link href='/' passHref>
+          <Link href='/perfil/alterar' passHref>
             <Typography>meu perfil</Typography>
           </Link>
         </MenuItem>
