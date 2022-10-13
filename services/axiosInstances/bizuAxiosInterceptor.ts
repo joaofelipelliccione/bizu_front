@@ -3,6 +3,8 @@ import Router from 'next/router';
 import BASE_URL from './baseUrl';
 import globalAlerts from '../../common/alerts';
 
+const blockedRoutes = ['/mobile/apps', '/web/apps'];
+
 const bizuAxiosInterceptor = axios.create({
   baseURL: BASE_URL,
   timeout: 5000,
@@ -16,12 +18,12 @@ bizuAxiosInterceptor.interceptors.response.use(
   (response: AxiosResponse) => response,
   (error: AxiosError) => {
     if (error.response?.status === 401) {
-      if (Router.pathname === '/') {
-        return Promise.reject(error);
+      if (blockedRoutes.includes(Router.pathname)) {
+        Router.push('/acessar/conta');
+        return globalAlerts('warning', 'bottom', 'faça seu login : )', 2500);
       }
 
-      Router.push('/acessar/conta');
-      return globalAlerts('warning', 'bottom', 'faça seu login : )', 2500);
+      return Promise.reject(error);
     }
 
     globalAlerts('error', 'bottom', 'ops, algo não saiu como esperado... tente novamente em alguns minutos!', 4000);
