@@ -25,7 +25,7 @@ function SearchBar() {
     if (router.pathname.includes('web')) {
       getSearchBarApps('web').then((resp) => setSearchBarApps(resp));
     }
-  }, []);
+  }, [router.pathname]);
 
   return (
     <Autocomplete
