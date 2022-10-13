@@ -1,5 +1,5 @@
-import { Typography } from '@mui/material';
 import type { NextPage } from 'next';
+import { Typography } from '@mui/material';
 import Navbar from '../../components/navbar/Navbar';
 import styles from '../../styles/pages/updateProfile.module.css';
 

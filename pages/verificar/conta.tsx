@@ -1,6 +1,6 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import {
   Button, IconButton, Grid, Typography,
 } from '@mui/material';
