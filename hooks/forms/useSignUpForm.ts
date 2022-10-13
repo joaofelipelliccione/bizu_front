@@ -36,8 +36,8 @@ function useSignUpForm() {
 
   const onSubmit = React.useCallback((formValues: ISignUpFormData) => {
     setIsFetching(true);
-    signUp(formValues).then((data) => {
-      switch (data.statusCode) {
+    signUp(formValues).then((resp) => {
+      switch (resp.statusCode) {
       case 201:
         setIsFetching(false);
         router.push('/verificar/conta');

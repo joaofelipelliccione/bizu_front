@@ -32,15 +32,15 @@ function useSignInForm() {
 
   const onSubmit = React.useCallback((formValues: ISignInFormData) => {
     setIsFetching(true);
-    login(formValues).then((data) => {
-      switch (data.statusCode) {
+    login(formValues).then((resp) => {
+      switch (resp.statusCode) {
       case 200:
         setIsFetching(false);
         router.push('/');
         globalAlerts('success', 'bottom', 'seja muito bem-vindo(a) :)', 2000);
         break;
       case 401:
-        if (data.message.includes('não verificado')) {
+        if (resp.message.includes('não verificado')) {
           globalAlerts('warning', 'bottom', 'acabamos de te enviar um e-mail de verificação de conta! confere lá sua caixa de entrada e depois tente realizar o login novamente ;)', 8000);
           setIsFetching(false);
           break;
