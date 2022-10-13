@@ -11,6 +11,12 @@ function SearchBar() {
   const router = useRouter();
   const [searchBarApps, setSearchBarApps] = React.useState<ISearchBarAppsResult[]>([]);
 
+  const onAutocompleteChange = (_e: React.SyntheticEvent, value: ISearchBarAppsResult | null) => {
+    if (value !== null) {
+      router.push(`/${value?.platform.toLowerCase()}/${value?.id}`);
+    }
+  };
+
   React.useEffect(() => {
     getSearchBarApps('all').then((resp) => setSearchBarApps(resp));
   }, []);
@@ -24,7 +30,7 @@ function SearchBar() {
       }}
       options={searchBarApps}
       getOptionLabel={(option) => option.name}
-      onChange={(event, value) => router.push(`/${value?.platform.toLowerCase()}/${value?.id}`)}
+      onChange={(event, value) => onAutocompleteChange(event, value)}
       autoHighlight
       size="small"
       renderOption={(props, option) => (
