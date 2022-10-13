@@ -2,10 +2,8 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
 import { Autocomplete, Box, TextField } from '@mui/material';
-// import Link from 'next/link';
 import getSearchBarApps from '../../services/GET/getSearchBarApps';
 import { ISearchBarAppsResult } from '../../interfaces/apps';
-// import styles from '../../styles/components/navbar.module.css';
 
 function SearchBar() {
   const router = useRouter();
@@ -18,7 +16,15 @@ function SearchBar() {
   };
 
   React.useEffect(() => {
-    getSearchBarApps('all').then((resp) => setSearchBarApps(resp));
+    if (router.pathname === '/') {
+      getSearchBarApps('all').then((resp) => setSearchBarApps(resp));
+    }
+    if (router.pathname.includes('mobile')) {
+      getSearchBarApps('mobile').then((resp) => setSearchBarApps(resp));
+    }
+    if (router.pathname.includes('web')) {
+      getSearchBarApps('web').then((resp) => setSearchBarApps(resp));
+    }
   }, []);
 
   return (
