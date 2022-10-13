@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import { Autocomplete, Box, TextField } from '@mui/material';
 // import Link from 'next/link';
 import getSearchBarApps from '../../services/GET/getSearchBarApps';
@@ -7,6 +8,7 @@ import { ISearchBarAppsResult } from '../../interfaces/apps';
 // import styles from '../../styles/components/navbar.module.css';
 
 function SearchBar() {
+  const router = useRouter();
   const [searchBarApps, setSearchBarApps] = React.useState<ISearchBarAppsResult[]>([]);
 
   React.useEffect(() => {
@@ -22,7 +24,7 @@ function SearchBar() {
       }}
       options={searchBarApps}
       getOptionLabel={(option) => option.name}
-      onChange={(event, value) => console.log(value?.id)}
+      onChange={(event, value) => router.push(`/${value?.platform.toLowerCase()}/${value?.id}`)}
       autoHighlight
       size="small"
       renderOption={(props, option) => (
