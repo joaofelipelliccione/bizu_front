@@ -7,7 +7,7 @@ interface IProps {
   imgClassName?: string;
 }
 
-export default function ImgBtn(props: IProps) {
+export default function Img(props: IProps) {
   const { imgClassName, imgSrc, imgAlt } = props;
 
   return (

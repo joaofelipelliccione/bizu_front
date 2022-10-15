@@ -1,5 +1,25 @@
 .homePageMain {
   border: solid 2px red;
   height: 100vh;
-  padding-top: 5rem;
+  padding-top: 4rem;
+}
+
+.homePage1stSection {
+  border: solid 2px green;
+  height: 50vh;
+}
+
+.nubankLogo {
+  width: 6rem;
+  transform: rotate(-26deg);
+  position: absolute;
+  top: 5.5rem
+}
+
+.rappiLogo {
+  width: 3.5rem;
+  transform: rotate(-59deg);
+  position: absolute;
+  left: 35%;
+  top: 5rem
 }
