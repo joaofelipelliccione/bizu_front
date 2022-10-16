@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { useRouter } from 'next/router';
 import {
-  AppBar, Toolbar, Button, LinearProgress,
+  AppBar, Toolbar, LinearProgress,
 } from '@mui/material';
 import bizuAxiosInterceptor from '../../services/axiosInstances/bizuAxiosInterceptor';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux/useRedux';
@@ -15,9 +14,9 @@ import AvatarMenu from './AvatarMenu';
 import HamburgerMenu from './HamburgerMenu';
 import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
+import LoginBtn from '../buttons/LoginBtn';
 
 function Navbar() {
-  const router = useRouter();
   const currentUserInfo = useAppSelector((state) => state.users);
   const isNavbarLoaderActive = useAppSelector((state) => state.navbarLoader.isActive);
   const dispatch = useAppDispatch();
@@ -76,24 +75,7 @@ function Navbar() {
         <LinkBarLeft />
         <SearchBar />
         <LinkBarRight />
-        {!currentUserInfo.id ? (
-          <Button
-            className={styles.enterBtn}
-            onClick={() => router.push('/acessar/conta')}
-            color='secondary'
-            variant="contained"
-            sx={{
-              border: 'solid 1px #FFFFFF',
-              borderRadius: '36px',
-              opacity: '0.65',
-              padding: '0.3rem 1.8rem',
-            }}
-          >
-          entrar
-          </Button>
-        ) : (
-          <AvatarMenu />
-        )}
+        {!currentUserInfo.id ? <LoginBtn /> : <AvatarMenu />}
         <HamburgerMenu />
       </Toolbar>
       {isNavbarLoaderActive && <LinearProgress color='secondary' />}
