@@ -46,7 +46,7 @@ const lightThemeOptions: ThemeOptions = {
         fontSize: '2.5rem',
       },
       '@media (min-width:1200px)': {
-        fontSize: '3rem',
+        fontSize: '2.7rem',
       },
     },
     h2: {

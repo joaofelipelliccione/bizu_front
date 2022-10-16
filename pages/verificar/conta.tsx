@@ -37,7 +37,7 @@ const Conta: NextPage = () => {
       >
         <Grid item>
           <Typography
-            variant="h1"
+            variant='h1'
             color={'primary'}
             sx={{
               fontSize: {
@@ -52,7 +52,7 @@ const Conta: NextPage = () => {
         </Grid>
         <Grid item>
           <Typography
-            variant="h2"
+            variant='h2'
             color={'secondary'}
             alignSelf={'center'}
             sx={{

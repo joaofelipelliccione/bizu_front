@@ -40,8 +40,8 @@ const appsLogos = [
 
 const FirstSection: NextPage = () => (
   <Grid
-    container
     className={styles.homePage1stSection}
+    container
     justifyContent={'center'}
   >
     {appsLogos.map(({
@@ -54,7 +54,38 @@ const FirstSection: NextPage = () => (
         imgAlt={`Logo do ${appName}`}
       />
     ))}
-    <Typography alignSelf={'center'}>Olá Mundo</Typography>
+    <Grid
+      container
+      flexDirection={'column'}
+      alignSelf={'center'}
+      textAlign={'center'}
+      width={'fit-content'}
+      sx={{
+        border: 'solid 2px pink',
+        width: {
+          xs: '85%', sm: '65%', md: '70%', lg: '75%',
+        },
+      }}
+    >
+      <Grid item>
+        <Typography
+          alignSelf={'center'}
+          variant='h1'
+          color={'primary'}
+          marginBottom={'1rem'}
+        >
+          ux e ui testado e aprovado
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Typography
+          variant='h2'
+          color={'primary'}
+        >
+          desenvolva novos fluxos em minutos com milhares de referências ao seu alcance!
+        </Typography>
+      </Grid>
+    </Grid>
   </Grid>
 );
 
