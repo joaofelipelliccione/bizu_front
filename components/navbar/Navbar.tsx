@@ -11,10 +11,10 @@ import LinkBarLeft from './LinkBarLeft';
 import SearchBar from './SearchBar';
 import LinkBarRight from './LinkBarRight';
 import AvatarMenu from './AvatarMenu';
+import LoginBtn from '../buttons/LoginBtn';
 import HamburgerMenu from './HamburgerMenu';
 import logo from '../../assets/logoDefault.png';
 import styles from '../../styles/components/navbar.module.css';
-import LoginBtn from '../buttons/LoginBtn';
 
 function Navbar() {
   const currentUserInfo = useAppSelector((state) => state.users);
@@ -75,7 +75,11 @@ function Navbar() {
         <LinkBarLeft />
         <SearchBar />
         <LinkBarRight />
-        {!currentUserInfo.id ? <LoginBtn /> : <AvatarMenu />}
+        {!currentUserInfo.id ? (
+          <LoginBtn btnClassName={styles.enterBtn} />
+        ) : (
+          <AvatarMenu />
+        )}
         <HamburgerMenu />
       </Toolbar>
       {isNavbarLoaderActive && <LinearProgress color='secondary' />}
