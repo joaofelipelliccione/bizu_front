@@ -87,22 +87,25 @@
   }
 
   .logoNubank {
-    width: 5rem;
+    width: 4.3rem;
+    transform: rotate(-35deg);
   }
 
   .logoRappi {
-    width: 6rem;
+    width: 4.8rem;
+    left: 40%;
   }
 
   .logoPicPay {
     width: 4.1rem;
     transform: rotate(24.3deg);
-    left: 75%;
+    left: 80%;
   }
 
   .logoRocketseat {
     width: 3.2rem;
-    left: 80%;
+    left: 82%;
+    top: 49vh;
   }
 
   .logoIfood {
@@ -111,12 +114,12 @@
     position: absolute;
     left: 0%;
     margin-right: 3%;
-    top: 45vh;
+    top: 44vh;
   }
 
   .logoEnjoei {
     width: 4.5rem;
-    left: 60%;
+    left: 65%;
     top: 62vh
   }
 
